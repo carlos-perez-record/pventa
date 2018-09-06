@@ -1,2 +1,23 @@
-<h1>Points#index</h1>
-<p>Find me in app/views/points/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Aplicativo de Puntos de Ventas</h1>
+      <table class="table">
+        <tr>
+          <th>Codigo</th>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+        </tr>
+        <% @p.each do |pventa| %>
+          <tr>
+            <td><%= pventa.codigo %></td>
+            <td><%= pventa.nombre %></td>
+            <td><%= pventa.direccion %></td>
+            <td><%= pventa.telefono %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
