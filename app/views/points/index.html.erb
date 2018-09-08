@@ -8,6 +8,7 @@
           <th>Nombre</th>
           <th>Direccion</th>
           <th>Telefono</th>
+          <th>Foto</th>
         </tr>
         <% @p.each do |pventa| %>
           <tr>
@@ -15,6 +16,7 @@
             <td><%= pventa.nombre %></td>
             <td><%= pventa.direccion %></td>
             <td><%= pventa.telefono %></td>
+            <td><%= image_tag(pventa.picture_url, :width => 170, :height => 190) if pventa.picture.present? %></td>
           </tr>
         <% end %>
       </table>
