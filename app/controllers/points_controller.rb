@@ -30,6 +30,15 @@ class PointsController < ApplicationController
     @p = Point.find(params[:id])
   end
 
+  def update
+    @p = Point.find(params[:id])
+    if @p.update(point_params)
+      redirect_to point_path, notice: "La informacion del punto de venta ha sido actualizada"
+    else
+      render :edit
+    end
+  end
+
 private
   def point_params
     params.require(:point).permit(:codigo, :nombre, :direccion, :telefono, :picture)
