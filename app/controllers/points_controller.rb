@@ -26,6 +26,10 @@ class PointsController < ApplicationController
     @p = Point.find(params[:id])
   end
 
+  def edit
+    @p = Point.find(params[:id])
+  end
+
 private
   def point_params
     params.require(:point).permit(:codigo, :nombre, :direccion, :telefono, :picture)
