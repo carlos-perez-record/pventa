@@ -39,6 +39,12 @@ class PointsController < ApplicationController
     end
   end
 
+  def destroy
+    point = Point.find(params[:id])
+    point.destroy
+    redirect_to points_path, notice: "El producto fue eliminado con éxito"
+  end
+
 private
   def point_params
     params.require(:point).permit(:codigo, :nombre, :direccion, :telefono, :picture)
