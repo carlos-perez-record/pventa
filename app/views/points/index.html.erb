@@ -18,7 +18,7 @@
             <td><%= pventa.direccion %></td>
             <td><%= pventa.telefono %></td>
             <td><%= image_tag(pventa.picture_url, :width => 170, :height => 190) if pventa.picture.present? %></td> <!-- Este muestra la imagen -->
-            <td><%= link_to "Editar", edit_point_path(pventa) %></td>
+            <td><%= link_to "Editar ", edit_point_path(pventa) %>- <%= link_to "Eliminar", pventa, method: :delete, data: { confirm: "¿Estás seguro de eliminar este producto?" } %></td>
           </tr>
         <% end %>
       </table>
