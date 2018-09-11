@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.4'
 
+# Gema para documentar los modelos y las migraciones
+gem 'annotate', '~> 2.7', '>= 2.7.1'
 # Gema para cargar las imagenes
 gem 'carrierwave'
 # Gema para crear Reportes
