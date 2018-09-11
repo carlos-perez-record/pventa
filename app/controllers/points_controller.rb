@@ -1,6 +1,11 @@
 class PointsController < ApplicationController
   def index
       @p = Point.all
+      respond_to do |format|
+        format.html
+        format.json
+        format.pdf {render template: 'points/reporte', pdf: 'Reporte'}
+      end
   end
 
   def new
