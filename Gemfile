@@ -3,7 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.4'
 
+# Gema para cargar las imagenes
 gem 'carrierwave'
+# Gema para crear Reportes
+gem 'wicked_pdf'
+# Gema para convertir HTML en Reportes
+gem 'wkhtmltopdf-binary'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use mysql as the database for Active Record
