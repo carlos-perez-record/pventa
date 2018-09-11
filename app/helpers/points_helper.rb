@@ -1,5 +1,5 @@
 module PointsHelper
   def form_title
-    @p.new_record? ? "Registrar Información Punto de Venta" : "Modificar Información Punto de Venta"
+    @p.new_record? ? "Registrar Punto de Venta" : "Editar Punto de Venta"
   end
 end

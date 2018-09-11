@@ -9,14 +9,16 @@
           <th>Direccion</th>
           <th>Telefono</th>
           <th>Foto</th>
+          <th>Acción</th>
         </tr>
         <% @p.each do |pventa| %>
           <tr>
             <td><%= pventa.codigo %></td>
-            <td><%= pventa.nombre %></td>
+            <td><%= link_to pventa.nombre, pventa %></td>
             <td><%= pventa.direccion %></td>
             <td><%= pventa.telefono %></td>
             <td><%= image_tag(pventa.picture_url, :width => 170, :height => 190) if pventa.picture.present? %></td> <!-- Este muestra la imagen -->
+            <td><%= link_to "Editar", edit_point_path(pventa) %></td>
           </tr>
         <% end %>
       </table>
