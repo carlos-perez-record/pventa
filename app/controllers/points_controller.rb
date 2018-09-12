@@ -1,4 +1,7 @@
 class PointsController < ApplicationController
+
+  before_action :private_access, except: [:index, :show]
+
   def index
       @p = Point.all
       #Instrucciones para utilizar y darle formato a los reportes generados.
@@ -24,6 +27,11 @@ class PointsController < ApplicationController
 
   def show
     @p = Point.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template: 'points/Rep_punto', pdf: 'Rep_punto'}
+    end
   end
 
   def edit

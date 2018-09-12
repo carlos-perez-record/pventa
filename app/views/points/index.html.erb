@@ -2,9 +2,11 @@
   <div class="row">
     <div class="col-sm-12">
       <h1>Aplicativo de Puntos de Ventas</h1>
-      <div class="text-right">
-        <%= link_to "Publicar Punto de Venta", new_point_path, class: "btn btn-primary" %>
-      </div>
+      <% if signed_in? %>
+        <div class="text-right">
+          <%= link_to "Publicar Punto de Venta", new_point_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
       <table class="table">
         <tr>
           <th>Codigo</th>
@@ -21,7 +23,9 @@
             <td><%= pventa.direccion %></td>
             <td><%= pventa.telefono %></td>
             <td><%= image_tag(pventa.picture_url, :width => 170, :height => 190) if pventa.picture.present? %></td> <!-- Este muestra la imagen -->
-            <td><%= link_to "Editar ", edit_point_path(pventa) %>- <%= link_to "Eliminar", pventa, method: :delete, data: { confirm: "¿Estás seguro de eliminar este producto?" } %></td>
+            <% if signed_in? %>
+              <td><%= link_to "Editar ", edit_point_path(pventa) %>- <%= link_to "Eliminar", pventa, method: :delete, data: { confirm: "¿Estás seguro de eliminar este producto?" } %></td>
+            <% end %>
           </tr>
         <% end %>
       </table>
