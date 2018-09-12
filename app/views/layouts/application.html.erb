@@ -14,7 +14,7 @@
       <div class="alert alert-success"><%= flash[:notice] %></div>
     <% end %>
     <% if signed_in? %>
-      <div>Hola <%= current_user.nombre %></div>
+      <div>Hola <%= current_user.nombre %><%= link_to " Salir", logout_path, method: :delete%></div>
     <% end %>
     <%= yield %>
 
