@@ -8,3 +8,28 @@
     </div>
   </div>
 </div>
+
+<div class="point-page">
+  <header class="point-header">
+    <h1><%= @p.nombre %></h1>
+    <p><%= @p.codigo %>
+      <%= @p.direccion %>
+    <%= @p.telefono %>
+  <%= image_tag(@p.picture_url, :width => 170, :height => 190) if @p.picture.present? %></p>
+
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="votes">
+          <h2>Votos</h2>
+        </div>
+
+        <div class="comments">
+          <h2>Comentarios</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,34 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
-      <h1>Aplicativo de Puntos de Ventas</h1>
-      <% if signed_in? %>
-        <div class="text-right">
-          <%= link_to "Publicar Punto de Venta", new_point_path, class: "btn btn-primary" %>
-        </div>
-      <% end %>
-      <table class="table">
-        <tr>
-          <th>Codigo</th>
-          <th>Nombre</th>
-          <th>Direccion</th>
-          <th>Telefono</th>
-          <th>Foto</th>
-          <th>Acción</th>
-        </tr>
+    <div class="col-sm-10 col-sm-offset-1">
+
+      <div class="points">
         <% @p.each do |pventa| %>
-          <tr>
-            <td><%= pventa.codigo %></td>
-            <td><%= link_to pventa.nombre, pventa %></td>
-            <td><%= pventa.direccion %></td>
-            <td><%= pventa.telefono %></td>
-            <td><%= image_tag(pventa.picture_url, :width => 170, :height => 190) if pventa.picture.present? %></td> <!-- Este muestra la imagen -->
-            <% if signed_in? %>
-              <td><%= link_to "Editar ", edit_point_path(pventa) %>- <%= link_to "Eliminar", pventa, method: :delete, data: { confirm: "¿Estás seguro de eliminar este producto?" } %></td>
-            <% end %>
-          </tr>
+        <div class="point clearfix">
+          <div class="point-details">
+            <span class="point-codigo">Codigo: <%= pventa.codigo %></span>
+            <span class="point-nombre">Nombre: <%=link_to pventa.nombre, pventa %></span>
+          </div>
+        </div>
         <% end %>
-      </table>
+      </div>
     </div>
   </div>
 </div>
