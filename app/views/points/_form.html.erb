@@ -2,11 +2,18 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h1><%= form_title %></h1>
-      <%= form_for @p, :html => {:multipart => true} do |f| %>
-      <!-- Aqui se agregara el campo que almacena la foto actual -->
-        <div class="form-group">
-          <%= f.file_field :picture %>
+      <!-- Aqui se agregara los mensajes de error de la validacion de los campos -->
+      <% if @p.errors.any? %>
+        <div class="alert alert-danger">
+          <ul>
+          <% @p.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
         </div>
+      <% end %>
+      <!--Comienza el ciclo que lista los puntos de venta-->
+      <%= form_for @p, :html => {:multipart => true} do |f| %>
         <div class="form-group">
           <%= f.text_field :codigo, class: "form-control input-lg", placeholder: "Ingresa el codigo del punto de venta" %>
         </div>
@@ -19,6 +26,10 @@
         <div class="form-group">
           <%= f.text_field :telefono, class: "form-control input-lg", placeholder: "Ingresa el telefono del punto de venta" %>
         </div>
+        <!-- Aqui se agregara el campo que almacena la foto actual -->
+          <div class="form-group">
+            <label>Foto:</label><%= f.file_field :picture, class: "form-control input-lg" %>
+          </div>
         <div>
           <%= f.submit form_title, class: "btn btn-primary btn-lg btn-block" %>
         </div>

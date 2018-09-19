@@ -14,4 +14,9 @@
 
 class Point < ApplicationRecord
   mount_uploader :picture, FotoUploader
+  # Se implementan las validaciones.
+  validates :codigo, presence: true
+  validates :nombre, presence: true
+  validates :direccion, presence: true
+  validates :telefono, presence: true
 end
