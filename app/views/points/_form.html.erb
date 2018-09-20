@@ -16,6 +16,7 @@
       <%= form_for @p, :html => {:multipart => true} do |f| %>
         <div class="form-group">
           <%= f.text_field :codigo, class: "form-control input-lg", :maxlength => 4, placeholder: "Ingresa el codigo del punto de venta" %>
+          <!-- maxlength: sirve para especificar numero maximo de caracteres en este campo, placeholder: texto dentro del campo -->
         </div>
         <div class="form-group">
           <%= f.text_field :nombre, class: "form-control input-lg", placeholder: "Ingresa el nombre del punto de Venta" %>
