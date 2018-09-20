@@ -15,7 +15,7 @@
           <th><h3><b>Datos Basicos</b></h3></th>
         </tr>
         <tr>
-          <td><%= image_tag(@p.picture_url, :width => 250, :height => 250) if @p.picture.present? %></td>
+          <td><%= image_tag(@p.picture.url, :width => 250, :height => 250) %></td>
           <td>
             <ul>
               <li><b>Nombre:</b> <%= @p.nombre %></li>
@@ -28,6 +28,10 @@
           </td>
         </tr>
       </table>
+    </div>
+    <div class="actions">
+      <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_point_path(@p) %>
+      <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, @p, method: :delete, data: { confirm: "¿Estás seguro de eliminar este punto de venta?" } %>
     </div>
   </header>
 
