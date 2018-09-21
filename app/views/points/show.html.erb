@@ -12,9 +12,9 @@
       <table class="table-condensed">
         <tr>
           <!--Tratar de definir un estilo para estos encabezados-->
-          <th><h3><b>Imagen</b></h3></th>
-          <th><h3><b>Datos Basicos</b></h3></th>
-          <th><h3><b>Tecnologia e Ip's</b></h3></th>
+          <th><h3><b>FOTO</b></h3></th>
+          <th><h3><b>UBICACION</b></h3></th>
+          <th><h3><b>TELECOMUNICACIONES</b></h3></th>
         </tr>
         <tr>
           <td><%= image_tag(@p.picture.url, :width => 250, :height => 250) %></td>
@@ -36,8 +36,9 @@
       </table>
     </div>
     <div class="actions">
-      <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_point_path(@p) %>
-      <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, @p, method: :delete, data: { confirm: "¿Estás seguro de eliminar este punto de venta?" } %>
+      <%= link_to "<span class='glyphicon glyphicon-th-list' data-toggle='tooltip' title='Generar Reporte'></span>".html_safe, point_path(@p, :format=>'pdf') %>
+      <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Informacion P.V.'></span>".html_safe, edit_point_path(@p) %>
+      <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar P.V.'></span>".html_safe, @p, method: :delete, data: { confirm: "¿Estás seguro de eliminar este punto de venta?" } %>
     </div>
   </header>
 
