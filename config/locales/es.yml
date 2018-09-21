@@ -12,9 +12,14 @@ es:
         password: "Contraseña"
       point:
         nombre: "Nombre"
-      errors:
-        models:
-          point:
-            attributes:
-              technology:
-                required: "Es Requerido"
+        technology_id: "Tecnologia"
+      Technology:
+        id: "ID"
+        descripcion: "Descripcion"
+
+    errors:
+      models:
+        point:
+          attributes:
+            technology:
+              required: ", el campo es requerido"
