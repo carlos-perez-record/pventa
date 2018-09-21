@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_12_143144) do
+ActiveRecord::Schema.define(version: 2018_09_20_195352) do
 
   create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "codigo"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2018_09_12_143144) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+    t.bigint "technology_id"
+    t.index ["technology_id"], name: "index_points_on_technology_id"
+  end
+
+  create_table "technologies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "descripcion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -31,4 +39,5 @@ ActiveRecord::Schema.define(version: 2018_09_12_143144) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "points", "technologies"
 end

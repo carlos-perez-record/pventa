@@ -4,6 +4,7 @@ es:
       blank: "no puede estar en blanco"
       invalid: "No es valido"
 
+
   activerecord:
     attributes:
       user:
@@ -11,3 +12,9 @@ es:
         password: "Contraseña"
       point:
         nombre: "Nombre"
+      errors:
+        models:
+          point:
+            attributes:
+              technology:
+                required: "Es Requerido"
