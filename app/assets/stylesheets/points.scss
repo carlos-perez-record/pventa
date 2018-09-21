@@ -32,7 +32,7 @@
 
 .point-page {
   .point-header {
-    background: #303030;
+    background: #FF0000;
     color: #fafaf2;
     /*text-align: center;*/
     padding: 5px 25px 15px;
@@ -61,12 +61,12 @@
       text-align: right;
 
       a {
-        color: #ccc;
+        color: white;
         font-size: 21px;
         margin-right: 5px;
 
 
-      &:hover { color: white; }
+      &:hover { color: #2EFE64; }
         }
       }
   }
