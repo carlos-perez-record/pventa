@@ -1,3 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "points";
+
+/* Se configura para que exista un margen superior de 50px */
+body {
+  margin-top:50px;
+}

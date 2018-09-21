@@ -4,6 +4,7 @@ es:
       blank: "no puede estar en blanco"
       invalid: "No es valido"
 
+
   activerecord:
     attributes:
       user:
@@ -11,3 +12,14 @@ es:
         password: "Contraseña"
       point:
         nombre: "Nombre"
+        technology_id: "Tecnologia"
+      Technology:
+        id: "ID"
+        descripcion: "Descripcion"
+
+    errors:
+      models:
+        point:
+          attributes:
+            technology:
+              required: ", el campo es requerido"
