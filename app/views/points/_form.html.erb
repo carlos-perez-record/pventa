@@ -15,28 +15,28 @@
       <!--Comienza el ciclo que lista los puntos de venta-->
       <%= form_for @p, :html => {:multipart => true} do |f| %>
         <div class="form-group">
-          <%= f.text_field :codigo, class: "form-control input-lg", :maxlength => 4, placeholder: "Ingresa el codigo del punto de venta" %>
+          <%= f.text_field :codigo, class: "form-control input-md", :maxlength => 4, placeholder: "Ingresa el codigo del punto de venta" %>
           <!-- maxlength: sirve para especificar numero maximo de caracteres en este campo, placeholder: texto dentro del campo -->
         </div>
         <div class="form-group">
-          <%= f.text_field :nombre, class: "form-control input-lg", placeholder: "Ingresa el nombre del punto de Venta" %>
+          <%= f.text_field :nombre, class: "form-control input-md", placeholder: "Ingresa el nombre del punto de Venta" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :direccion, class: "form-control input-lg", placeholder: "Ingresa la direccion del punto de venta" %>
+          <%= f.text_field :direccion, class: "form-control input-md", placeholder: "Ingresa la direccion del punto de venta" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :telefono, class: "form-control input-lg", placeholder: "Ingresa el telefono del punto de venta" %>
+          <%= f.text_field :telefono, class: "form-control input-md", placeholder: "Ingresa el telefono del punto de venta" %>
         </div>
         <!-- Aqui se agregara el campo que almacena la foto actual -->
           <div class="form-group">
-            <label>Foto:</label><%= f.file_field :picture, class: "form-control input-lg" %>
+            <label class="control-label col-sm-2">Foto:</label><%= f.file_field :picture, class: "form-control input-md" %>
           </div>
           <div class="form-group">
             <!--Se incluye control de lista de seleccion el cual sin necesidad aun de crear un controlador para tecnologia
           se incluye en el metodo option_for_select los argumentos compuestos por Modelo.all.collect, conformandose la coleccion
         por cada uno de los registros de tecnologia, donde lo que va entre corchetes es lo que se muestra en la lista, mientras que el
       segundo argumento es lo que toma como clave foranea para guardar en la base de datos.-->
-              <%= f.select :technology_id, options_for_select(Technology.all.collect { |t| [t.descripcion, t.id]}.insert(0, "Seleccione una tecnologia")), {}, class: "form-control input-lg", placeholder: "Seleccione la tecnologia"%></button>
+              <%= f.select :technology_id, options_for_select(Technology.all.collect { |t| [t.descripcion, t.id]}.insert(0, "Seleccione una tecnologia")), {}, class: "form-control input-md"%></button>
           </div>
         <div>
           <%= f.submit form_title, class: "btn btn-primary btn-lg btn-block" %>

@@ -1,17 +1,17 @@
-<div class="container">
-  <div class="jumbotron">
+<div class="container" id="myDIV">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
+      <h1>Puntos de Venta - Zona: Monteria</h1>
 
 
       <div class="points">
+
         <% @p.each do |pventa| %>
-        <div class="point clearfix">
+        <%= link_to pventa do %><div class="point clearfix" id="clearf" data-toggle="tooltip" title="Clic para mas información de este punto de venta">
           <div class="point-details">
-            <span class="point-codigo">Codigo: <%= pventa.codigo %></span>
-            <span class="point-nombre">Nombre: <%=link_to pventa.nombre, pventa %></span>
+            <span class="point-nombre"><%= image_tag(pventa.picture.url, :width => 50, :height => 50) %><b> COD:</b><%= pventa.codigo %>,<b> NOMBRE:</b> <%=pventa.nombre%></span>
           </div>
-        </div>
+        </div><% end %>
         <% end %>
       </div>
     </div>

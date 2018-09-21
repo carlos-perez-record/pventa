@@ -16,3 +16,13 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$(document).ready(function(){
+$("#myInput").on("keyup", function() {
+var value = $(this).val().toLowerCase();
+$("#myDIV *").filter(function() {
+$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+});
+});
+});
