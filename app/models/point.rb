@@ -11,11 +11,13 @@
 #  updated_at    :datetime         not null
 #  picture       :string(255)
 #  technology_id :bigint(8)
+#  center_id     :bigint(8)
 #
 
 class Point < ApplicationRecord
   mount_uploader :picture, FotoUploader
   belongs_to :technology
+  belongs_to :center
   # Se implementan las validaciones.
   validates :codigo, :nombre, :direccion, :telefono, presence: true
 

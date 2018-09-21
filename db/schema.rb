@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_20_195352) do
+ActiveRecord::Schema.define(version: 2018_09_21_224625) do
+
+  create_table "centers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "codigo"
@@ -21,6 +27,8 @@ ActiveRecord::Schema.define(version: 2018_09_20_195352) do
     t.datetime "updated_at", null: false
     t.string "picture"
     t.bigint "technology_id"
+    t.bigint "center_id"
+    t.index ["center_id"], name: "index_points_on_center_id"
     t.index ["technology_id"], name: "index_points_on_technology_id"
   end
 
@@ -39,5 +47,6 @@ ActiveRecord::Schema.define(version: 2018_09_20_195352) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "points", "centers"
   add_foreign_key "points", "technologies"
 end
