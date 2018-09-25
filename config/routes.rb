@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'technologies/new'
+  get 'technologies/create'
+  get 'technologies/edit'
+  get 'technologies/update'
+  get 'technologies/destroy'
   root 'points#index'
 
   get 'login', to: 'sessions#new'

@@ -36,7 +36,7 @@
       </table>
     </div>
     <div class="actions">
-      <%= link_to "<span class='glyphicon glyphicon-th-list' data-toggle='tooltip' title='Generar Reporte'></span>".html_safe, point_path(@p, :format=>'pdf') %>
+      <%= link_to "<span class='glyphicon glyphicon-file' data-toggle='tooltip' title='Generar Reporte'></span>".html_safe, point_path(@p, :format=>'pdf') %>
       <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Informacion P.V.'></span>".html_safe, edit_point_path(@p) %>
       <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar P.V.'></span>".html_safe, @p, method: :delete, data: { confirm: "¿Estás seguro de eliminar este punto de venta?" } %>
     </div>
