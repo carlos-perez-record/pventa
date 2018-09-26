@@ -36,11 +36,10 @@
           se incluye en el metodo option_for_select los argumentos compuestos por Modelo.all.collect, conformandose la coleccion
         por cada uno de los registros de tecnologia, donde lo que va entre corchetes es lo que se muestra en la lista, mientras que el
       segundo argumento es lo que toma como clave foranea para guardar en la base de datos.-->
-              <label class="control-label col-sm-2">Tecnologia:</label>
+              <label class="control-label col-sm-6">Tecnologia de Comunicaciones:</label>
+              <div class="b_auxiliares">
+                <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Agregar Tecnologia'></span>".html_safe, new_technology_path, remote: true %></div>
               <%= f.select :technology_id, options_for_select(Technology.all.collect { |t| [t.descripcion, t.id]}), {}, class: "form-control input-md"%>
-                <div class="b_auxiliares">
-                  <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Agregar Tecnologia'></span>".html_safe %>
-                </div><br/>
           </div>
         <div>
           <%= f.submit form_title, class: "btn btn-danger btn-lg btn-block" %>
