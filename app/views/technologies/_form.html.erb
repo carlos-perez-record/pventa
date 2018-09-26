@@ -1,0 +1,21 @@
+<div id="technology-modal" class="modal fade"> <!-- product-modal -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= title %></h4>
+      </div>
+      <%= form_for @t, remote: true do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.text_field :descripcion, class: "form-control input-lg", placeholder: "Favor ingrese la nueva marca" %>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <%= f.submit "Registrar Marca", class: "btn btn-danger btn-lg btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

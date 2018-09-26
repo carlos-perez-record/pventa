@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'technologies/new'
-  get 'technologies/create'
-  get 'technologies/edit'
-  get 'technologies/update'
-  get 'technologies/destroy'
   root 'points#index'
 
   get 'login', to: 'sessions#new'
@@ -13,4 +8,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :points
+  resources :technologies, except: [:index]
 end

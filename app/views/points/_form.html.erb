@@ -40,7 +40,6 @@
               <%= f.select :technology_id, options_for_select(Technology.all.collect { |t| [t.descripcion, t.id]}), {}, class: "form-control input-md"%>
                 <div class="b_auxiliares">
                   <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Agregar Tecnologia'></span>".html_safe %>
-
                 </div><br/>
           </div>
         <div>

@@ -1,0 +1,9 @@
+<% if @t.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", technology: @t %>');
+  $('.alert-success').html("La marca ha sido creada").show();
+  $('#technology-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @t.errors.full_messages[0] %>');
+<% end %>
