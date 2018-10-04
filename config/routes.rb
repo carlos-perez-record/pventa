@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :points
-  resources :technologies, except: [:index]
+  resources :technologies
 end

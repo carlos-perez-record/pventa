@@ -1,4 +1,9 @@
 class TechnologiesController < ApplicationController
+
+  def index
+    @t = Technology.all
+  end
+
   def new
     @t = Technology.new
   end
@@ -6,7 +11,7 @@ class TechnologiesController < ApplicationController
   def create
     @t = Technology.new(technology_params)
     if @t.save
-      redirect_to points_path, notice: "Se agrego una nueva tecnologia de comunicaciones"
+      redirect_to technologies_path, notice: "Se agrego una nueva tecnologia de comunicaciones"
     else
       render :new
     end
@@ -19,7 +24,7 @@ class TechnologiesController < ApplicationController
   def update
     @t = Technology.find(params[:id])
     if @t.update(technology_params)
-      redirect_to points_path, notice: "Esta Tecnologia ha sido actualizada"
+      redirect_to technologies_path, notice: "Esta Tecnologia ha sido actualizada"
     else
       render :edit
     end
@@ -28,12 +33,12 @@ class TechnologiesController < ApplicationController
   def destroy
     technology = Technology.find(params[:id])
     technology.destroy
-    redirect_to point_path, notice: "La marca fue eliminada"
+    redirect_to technologies_path, notice: "La tecnologia fue eliminada"
   end
 
   private
     def technology_params
-      params.require(:technology).permit(:descripcion)
+      params.require(:technology).permit(:descripcion, :serial, :celda)
     end
 
 end

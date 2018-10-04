@@ -58,4 +58,6 @@ private
     params.require(:point).permit(:codigo, :nombre, :direccion, :telefono, :picture, :technology_id)
   end
 
+
+
 end

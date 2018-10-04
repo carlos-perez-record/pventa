@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Listado Tecnologias de Comunicacion</h1></br>
+      <table class="table">
+        <tr>
+          <th>NOMBRE</th>
+          <th>SERIAL</th>
+          <th>CELDA ASOCIADA</th>
+          <th>ACCION</th>
+        </tr>
+        <% @t.each do |tecno| %>
+          <tr>
+            <td><%= tecno.descripcion %></td>
+            <td><%= tecno.serial %></td>
+            <td><%= tecno.celda %></td>
+            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tecnologia'></span>".html_safe, edit_technology_path(tecno), remote: true %>
+            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar Tecnologia'></span>".html_safe, tecno, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta tecnologia?" } %></td>
+          </div></tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

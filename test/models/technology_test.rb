@@ -6,6 +6,8 @@
 #  descripcion :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  serial      :string(255)
+#  celda       :string(255)
 #
 
 require 'test_helper'
