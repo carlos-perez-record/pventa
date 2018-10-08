@@ -12,6 +12,8 @@
 #  picture       :string(255)
 #  technology_id :bigint(8)
 #  center_id     :bigint(8)
+#  serial        :string(255)
+#  celda         :string(255)
 #
 
 require 'test_helper'
