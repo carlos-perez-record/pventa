@@ -15,21 +15,21 @@
       <!--Comienza el ciclo que lista los puntos de venta-->
       <%= form_for @p, :html => {:multipart => true} do |f| %>
         <div class="form-group">
-          <%= f.text_field :codigo, class: "form-control input-md", :maxlength => 4, placeholder: "Ingresa el codigo del punto de venta" %>
+          <%= f.text_field :codigo, class: "form-control input-sm", :maxlength => 4, placeholder: "Ingresa el codigo del punto de venta" %>
           <!-- maxlength: sirve para especificar numero maximo de caracteres en este campo, placeholder: texto dentro del campo -->
         </div>
         <div class="form-group">
-          <%= f.text_field :nombre, class: "form-control input-md", placeholder: "Ingresa el nombre del punto de Venta" %>
+          <%= f.text_field :nombre, class: "form-control input-sm", placeholder: "Ingresa el nombre del punto de Venta" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :direccion, class: "form-control input-md", placeholder: "Ingresa la direccion del punto de venta" %>
+          <%= f.text_field :direccion, class: "form-control input-sm", placeholder: "Ingresa la direccion del punto de venta" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :telefono, class: "form-control input-md", placeholder: "Ingresa el telefono del punto de venta" %>
+          <%= f.text_field :telefono, class: "form-control input-sm", placeholder: "Ingresa el telefono del punto de venta" %>
         </div>
         <!-- Aqui se agregara el campo que almacena la foto actual -->
           <div class="form-group">
-            <label class="control-label col-sm-2">Foto:</label><%= f.file_field :picture, class: "form-control input-md" %>
+            <label class="control-label col-sm-2">Foto:</label><%= f.file_field :picture, class: "form-control input-sm" %>
           </div>
           <div class="form-group">
             <!--Se incluye control de lista de seleccion el cual sin necesidad aun de crear un controlador para tecnologia
@@ -39,10 +39,16 @@
               <label class="control-label col-sm-6">Tecnologia de Comunicaciones:</label>
               <div class="b_auxiliares">
                 <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Agregar Tecnologia'></span>".html_safe, new_technology_path, remote: true %></div>
-              <%= f.select :technology_id, options_for_select(Technology.all.collect { |t| [t.descripcion, t.id]}), {}, class: "form-control input-md"%>
+              <%= f.select :technology_id, options_for_select(Technology.all.collect { |t| [t.descripcion, t.id]}), {}, class: "form-control input-sm"%>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :serial, class: "form-control input-sm", placeholder: "Ingrese el Serial" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :celda, class: "form-control input-sm", placeholder: "Ingrese la celda" %>
           </div>
         <div>
-          <%= f.submit form_title, class: "btn btn-danger btn-lg btn-block" %>
+          <%= f.submit form_title, class: "btn btn-danger btn-md btn-block" %>
         </div>
       <% end %>
     </div>
