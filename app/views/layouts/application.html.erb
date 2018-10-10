@@ -42,7 +42,13 @@
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="#">Page 1-1</a></li>
-                      <li><a href="#">Page 1-2</a></li>
+                      <li class="dropdown-submenu">
+                        <a class="test" tabindex="-1" href="">Centros de Costos<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a tabindex="-1" href="#"><%= link_to "Nuevo Centro Costos", new_center_path, remote: true %></a></li>
+                          <li><a tabindex="-1" href="#"><%= link_to "Ver Centro Costos", centers_path %></a></li>
+                        </ul>
+                      </li>
                       <li class="dropdown-submenu">
                         <a class="test" tabindex="-1" href="">Tecn. Comunicaciones<span class="caret"></span></a>
                         <ul class="dropdown-menu">

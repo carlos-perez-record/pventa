@@ -1,0 +1,10 @@
+
+<% if @c.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#<%= @c.id %>').replaceWith(' <%= j render "row", center: @c %>');
+  $('.alert-success').html("El centro de costos ha sido modificado").show();
+  $('#center-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @c.errors.full_messages[0] %>');
+<% end %>

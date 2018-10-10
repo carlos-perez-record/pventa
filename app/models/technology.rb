@@ -9,5 +9,7 @@
 #
 
 class Technology < ApplicationRecord
-  has_many :point
+  # Con has many creo la relacion con la tabla puntos
+  # con destroy implemento la eliminacion en cascada
+  has_many :point, dependent: :destroy
 end

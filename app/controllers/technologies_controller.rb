@@ -33,7 +33,7 @@ class TechnologiesController < ApplicationController
   def destroy
     technology = Technology.find(params[:id])
     technology.destroy
-    redirect_to technologies_path, notice: "La tecnologia fue eliminada"
+    redirect_to technologies_path, notice: "La tecnologia fue eliminada, y todos los registros de puntos de venta que la contenian"
   end
 
   private

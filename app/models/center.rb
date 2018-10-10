@@ -9,5 +9,5 @@
 #
 
 class Center < ApplicationRecord
-  has_many :point
+  has_many :point, dependent: :destroy
 end
