@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :points
   resources :technologies, except: [:show]
   resources :centers, except: [:show]
+  resources :zones
 end
