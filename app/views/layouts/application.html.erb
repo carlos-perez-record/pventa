@@ -2,7 +2,8 @@
 <html>
   <head>
 
-    <title>Pventa</title>
+    <title>App Puntos de Venta</title>
+    <!-- A continuacion codigo generado automaticamente por el framework -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -36,6 +37,27 @@
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <% if signed_in? %>
+                <li data-toggle="tooltip" title="Gestión de Maestros" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Maestros <span class='glyphicon glyphicon-tasks'></span>
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Page 1-1</a></li>
+                      <li class="dropdown-submenu">
+                        <a class="test" tabindex="-1" href="">Centros de Costos<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a tabindex="-1" href="#"><%= link_to "Nuevo Centro Costos", new_center_path, remote: true %></a></li>
+                          <li><a tabindex="-1" href="#"><%= link_to "Ver Centro Costos", centers_path %></a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-submenu">
+                        <a class="test" tabindex="-1" href="">Tecn. Comunicaciones<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a tabindex="-1" href="#"><%= link_to "Nueva Tecnologia", new_technology_path, remote: true %></a></li>
+                          <li><a tabindex="-1" href="#"><%= link_to "Ver Tecnologias", technologies_path %></a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
                   <li data-toggle="tooltip" title="Agregar Nuevo Punto de Venta"><%= link_to "Registrar PV <span class='glyphicon glyphicon-plus'></span>".html_safe, new_point_path %></li>
                   <li data-toggle="tooltip" title="Cerrar sesion"><%= link_to "Salir <span class='glyphicon glyphicon-off'></span>".html_safe, logout_path, method: :delete %></li>
                 <% else %>
@@ -45,7 +67,7 @@
               </ul>
               <form class="navbar-form navbar-right" role="search" data-toggle="tooltip" title="Buscar Punto de Venta">
                 <div class="form-group">
-                  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                  <input class="form-control" id="myInput" type="text" placeholder="Buscar Punto de Venta">
                 </div>
               </form>
             </div><!-- /.navbar-collapse -->

@@ -99,3 +99,14 @@
     }
   }
 }
+
+.b_auxiliares {
+  margin-top: 2px;
+  text-align: right;
+  a {
+    color: black;
+    margin-right: 2px;
+
+    &:hover { color: #F04500; }
+  }
+}

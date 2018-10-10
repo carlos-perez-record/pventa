@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'points#index'
 
   get 'login', to: 'sessions#new'
@@ -8,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :points
+  resources :technologies, except: [:show]
+  resources :centers, except: [:show]
 end

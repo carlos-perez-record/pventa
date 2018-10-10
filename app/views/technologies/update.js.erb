@@ -1,0 +1,10 @@
+
+<% if @t.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#<%= @t.id %>').replaceWith(' <%= j render "row", technology: @t %>');
+  $('.alert-success').html("La tecnologia ha sido modificada").show();
+  $('#technology-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @t.errors.full_messages[0] %>');
+<% end %>

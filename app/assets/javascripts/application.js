@@ -18,11 +18,19 @@
 //= require_tree .
 
 
-$(document).ready(function(){
-$("#myInput").on("keyup", function() {
-var value = $(this).val().toLowerCase();
-$("#myDIV *").filter(function() {
-$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-});
-});
+$(document).on("turbolinks:load",function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myDIV *").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+  $(document).on("turbolinks:load",function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
 });

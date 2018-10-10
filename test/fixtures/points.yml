@@ -11,6 +11,9 @@
 #  updated_at    :datetime         not null
 #  picture       :string(255)
 #  technology_id :bigint(8)
+#  center_id     :bigint(8)
+#  serial        :string(255)
+#  celda         :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
