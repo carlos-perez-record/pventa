@@ -8,7 +8,6 @@
         <thead>
           <tr>
             <th>NOMBRE</th>
-            <!-- <th>ZONA</th> -->
             <th>ACCION</th>
           </tr>
         </thead>
@@ -16,10 +15,14 @@
         <tr>
           <td><%= zone.nombre %></td>
           <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Zona'></span>".html_safe, edit_zone_path(zone), remote: true %>
+            <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nuevo Centro de Costos'></span>".html_safe, new_center_path, remote: true %>
+            <%= link_to "<span class='glyphicon glyphicon-eye-open' data-toggle='tooltip' title='Ver los Centro de Costos de esta zona'></span>".html_safe, zone_path(zone) %>
             <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina la zona sus centros de costos y puntos de venta'></span>".html_safe, zone, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta ZONA, y por consiguiente sus CENTROS DE COSTO y PUNTOS DE VENTA?, de no ser asi cambien los centros de costos a una zona que no sea afectada o en su defecto asignele a los puntos de venta otro centro de costos de otra zona" } %></td>
         </div></tr>
         <% end %>
       </table>
     </div>
   </div>
+
+
 </div>
