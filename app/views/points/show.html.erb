@@ -24,16 +24,16 @@
               <li><b>Nombre:</b> <%= @p.nombre %></li>
               <li><b>Codigo:</b> <%= @p.codigo %></li>
               <li><b>Zona:</b> <h4>(PENDIENTE)</h4></li>
-              <li><b>Centro de Costos:</b> <h4>(PENDIENTE)</h4></li>
-              <li><b>Direccion:</b> <%= @p.direccion %></li>
-              <li><b>Telefono:</b><%= @p.telefono %></li>
+              <li><b>Centro de Costos: </b><% c=Center.find(@p.center_id) %><%=c.nombre%></li>
+              <li><b>Direccion: </b> <%= @p.direccion %></li>
+              <li><b>Telefono: </b><%= @p.telefono %></li>
             </ul>
           </td>
           <td>
             <ul>
               <li><b>Tecnologia: </b><% t=Technology.find(@p.technology_id) %><%=t.descripcion%></ti>
-              <li><b>Serial: </b><% @p.serial %></ti>
-              <li><b>Celda: </b><% @p.celda %></ti>
+              <li><b>Serial: </b><%= @p.serial %></ti>
+              <li><b>Celda: </b><%= @p.celda %></ti>
             </ul>
         </tr>
       </table>
