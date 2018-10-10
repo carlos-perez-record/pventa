@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'zones/index'
+  get 'zones/new'
+  get 'zones/create'
+  get 'zones/edit'
+  get 'zones/update'
+  get 'zones/destroy'
   root 'points#index'
 
   get 'login', to: 'sessions#new'
