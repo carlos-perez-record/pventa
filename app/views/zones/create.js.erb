@@ -1,8 +1,7 @@
-
 <% if @z.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  $('table tbody tr#<%= @z.id %>').replaceWith(' <%= j render "row", zone: @z %>');
-  $('.alert-success').html("La Zona ha sido modificada").show();
+  $('table tbody').append(' <%= j render "row", zone: @z %>');
+  $('.alert-success').html("La zona ha sido creada").show();
   $('#center-modal').modal('hide');
 <% else %>
   // show first error
