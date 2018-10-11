@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <div class="page-header">
-      <h4>PUNTO DE VENTA: CC: <% c=Center.find(@p.center_id) %><%=c.nombre%> > <%= @p.nombre %></h4><br/>
-    </div>
+      <div class="page-header icons">
+        <h1>Hoja de Vida PV: <%= @p.nombre %></h1>
+          <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
+      </div>
   </div>
 </div>
-
 <div class="point-page">
   <header class="point-header">
     <div class="table-responsive">
@@ -18,13 +18,13 @@
           <th><h3><b>TELECOMUNICACIONES</b></h3></th>
         </tr>
         <tr>
-          <td><%= image_tag(@p.picture.url, :width => 250, :height => 250) %></td>
+          <td><%= image_tag(@p.picture.url, :width => 220, :height => 220) %></td>
           <td>
             <ul>
               <li><b>Nombre:</b> <%= @p.nombre %></li>
               <li><b>Codigo:</b> <%= @p.codigo %></li>
-              <li><b>Zona:</b> <h4>(PENDIENTE)</h4></li>
-              <li><b>Centro de Costos: </b><% c=Center.find(@p.center_id) %><%=c.nombre%></li>
+              <li><b>Zona: </b><% c=Center.find(@p.center_id) %><% z=Zone.find(c.zone_id)%><%=z.nombre%></li>
+              <li><b>Centro de Costos: </b><%=c.nombre%></li>
               <li><b>Direccion: </b> <%= @p.direccion %></li>
               <li><b>Telefono: </b><%= @p.telefono %></li>
             </ul>

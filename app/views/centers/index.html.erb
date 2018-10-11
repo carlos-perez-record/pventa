@@ -3,6 +3,9 @@
     <div class="col-sm-8 col-sm-offset-2">
       <div class="page-header">
         <h1>Centros de Costos</h1>
+        <div class="icons">
+          <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
+        </div>
       </div>
       <table class="table table-striped">
         <thead>
@@ -21,9 +24,6 @@
         </div></tr>
         <% end %>
       </table>
-      <div class="icons">
-        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Zonas'></span>".html_safe, zones_path %>
-      </div>
     </div>
   </div>
 </div>
