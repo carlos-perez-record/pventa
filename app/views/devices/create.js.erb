@@ -1,0 +1,9 @@
+<% if @d.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", device: @d %>');
+  $('.alert-success').html("El dispositivo ha sido creado").show();
+  $('#center-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @d.errors.full_messages[0] %>');
+<% end %>

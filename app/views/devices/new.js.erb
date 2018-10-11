@@ -1,0 +1,4 @@
+$('<%= j render "form", title: "Registrar Nuevo Dispositivo" %>').on('hidden.bs.modal', function (e) {
+  $(this).remove();
+  $('.modal-backdrop').remove();
+}).modal();

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_10_202505) do
+ActiveRecord::Schema.define(version: 2018_10_11_161212) do
 
   create_table "centers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2018_10_10_202505) do
     t.datetime "updated_at", null: false
     t.bigint "zone_id"
     t.index ["zone_id"], name: "index_centers_on_zone_id"
+  end
+
+  create_table "devices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nombre"
+    t.string "tipo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

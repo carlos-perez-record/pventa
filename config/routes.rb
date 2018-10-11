@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'zones/index'
-  get 'zones/new'
-  get 'zones/create'
-  get 'zones/edit'
-  get 'zones/update'
-  get 'zones/destroy'
   root 'points#index'
 
   get 'login', to: 'sessions#new'
@@ -18,4 +11,5 @@ Rails.application.routes.draw do
   resources :technologies, except: [:show]
   resources :centers, except: [:show]
   resources :zones
+  resources :devices
 end
