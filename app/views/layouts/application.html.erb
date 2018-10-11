@@ -41,7 +41,13 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Maestros <span class='glyphicon glyphicon-tasks'></span>
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Page 1-1</a></li>
+                      <li class="dropdown-submenu">
+                        <a class="test" tabindex="-1" href="">Dispositivos<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a tabindex="-1" href="#"><%= link_to "Agregar Dispositivo", new_device_path, remote: true %></a></li>
+                          <li><a tabindex="-1" href="#"><%= link_to "Ver Dispositivos", devices_path %></a></li>
+                        </ul>
+                      </li>
                       <li class="dropdown-submenu">
                         <a class="test" tabindex="-1" href="">Territorio<span class="caret"></span></a>
                         <ul class="dropdown-menu">
