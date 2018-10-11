@@ -1,0 +1,4 @@
+$('<%= j render "form", title: "Registrar una nueva zona" %>').on('hidden.bs.modal', function (e) {
+  $(this).remove();
+  $('.modal-backdrop').remove();
+}).modal();

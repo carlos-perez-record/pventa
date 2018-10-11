@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_221828) do
+ActiveRecord::Schema.define(version: 2018_10_10_202505) do
 
   create_table "centers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "zone_id"
+    t.index ["zone_id"], name: "index_centers_on_zone_id"
   end
 
   create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -49,6 +51,13 @@ ActiveRecord::Schema.define(version: 2018_10_08_221828) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "zones", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "centers", "zones"
   add_foreign_key "points", "centers"
   add_foreign_key "points", "technologies"
 end

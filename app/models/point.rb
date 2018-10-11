@@ -21,6 +21,6 @@ class Point < ApplicationRecord
   belongs_to :technology
   belongs_to :center
   # Se implementan las validaciones.
-  validates :codigo, :nombre, :direccion, :telefono, presence: true
+  validates :codigo, :nombre, :direccion, :telefono, :center_id, presence: true
 
 end

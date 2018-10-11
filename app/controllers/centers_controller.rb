@@ -38,6 +38,6 @@ class CentersController < ApplicationController
 
 private
   def center_params
-    params.require(:center).permit(:nombre)
+    params.require(:center).permit(:nombre, :zone_id)
   end
 end

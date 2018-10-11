@@ -1,18 +1,12 @@
 # == Schema Information
 #
-# Table name: centers
+# Table name: zones
 #
 #  id         :bigint(8)        not null, primary key
 #  nombre     :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  zone_id    :bigint(8)
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  nombre: MyString
-
-two:
-  nombre: MyString
+class Zone < ApplicationRecord
+end

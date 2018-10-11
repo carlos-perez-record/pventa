@@ -2,10 +2,7 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <div class="page-header">
-        <h1>Centros de Costos</h1>
-        <div class="icons">
-          <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
-        </div>
+        <h1>Centros de Costos Zona: <%= @z.nombre %></h1><br/>
       </div>
       <table class="table table-striped">
         <thead>
@@ -15,7 +12,9 @@
             <th>ACCION</th>
           </tr>
         </thead>
-        <% @c.each do |center| %>
+        <% c=Center.all %>
+        <% c.each do |center| %>
+        <% if(center.zone_id == @z.id) %>
         <tr>
           <td><%= center.nombre %></td>
           <td><% z=Zone.find(center.zone_id) %><%=z.nombre %></td>
@@ -23,7 +22,11 @@
             <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina el Centro de Costo y los puntos de venta que lo contienen'></span>".html_safe, center, method: :delete, data: { confirm: "¿Estás seguro de eliminar este centro de costos, y por consiguiente todos los puntos de venta que lo contienen?, de no ser asi cambie primero el centro de costos de los puntos de venta que la contienen y luego regrese a borrarlo" } %></td>
         </div></tr>
         <% end %>
+        <% end %>
       </table>
+      <div class="icons">
+        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Zonas'></span>".html_safe, zones_path %>
+      </div>
     </div>
   </div>
 </div>
