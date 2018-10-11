@@ -8,11 +8,12 @@
       <%= form_for @d, remote: true do |f| %>
         <div class="modal-body">
           <div class="form-group">
-            <%= f.text_field :nombre, class: "form-control input-lg", placeholder: "Registrar Nuevo Dispositivo" %>
-            <%= f.text_field :tipo, class: "form-control input-lg", placeholder: "Tipo de Dispositivo" %>
+            <%= f.text_field :nombre, class: "form-control input-lg", placeholder: "Descripcion Nuevo Dispositivo (Ej: Mouse, Teclado, etc)" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :tipo, class: "form-control input-lg", placeholder: "Tipo de Dispositivo (Ej: Si es un teclado, Tipo = USB o PS2)" %>
           </div>
         </div>
-
         <div class="modal-footer">
           <%= f.submit "Registrar", class: "btn btn-danger btn-lg btn-block" %>
         </div>
