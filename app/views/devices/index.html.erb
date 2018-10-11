@@ -1,2 +1,30 @@
-<h1>Devices#index</h1>
-<p>Find me in app/views/devices/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="page-header icons">
+        <h1>Dispositivos</h1>
+        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>NOMBRE</th>
+              <th>TIPO</th>
+              <th>ACCION</th>
+            </tr>
+          </thead>
+          <% @d.each do |device| %>
+          <tr>
+            <td><%= device.nombre %></td>
+            <td><%= device.tipo %></td>
+            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Dispositivo'></span>".html_safe, edit_device_path(device), remote: true %>
+              <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nuevo Dispositivo'></span>".html_safe, new_device_path, remote: true %>
+              <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar el dispositivo'></span>".html_safe, device, method: :delete, data: { confirm: "¿Estás seguro de eliminar este dispositivo" } %></td>
+          </div></tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

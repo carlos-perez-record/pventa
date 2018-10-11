@@ -1,0 +1,7 @@
+<tr id="<%= device.id %>">
+  <td><%= device.nombre %></td>
+  <td><%= device.tipo %></td>
+  <td>
+    <%= link_to "Modificar", edit_device_path(device), remote: true %>
+  </td>
+</tr>
