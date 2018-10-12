@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_11_161212) do
+ActiveRecord::Schema.define(version: 2018_10_12_143134) do
+
+  create_table "actives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "ip"
+    t.string "serial"
+    t.string "placa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "devices_id"
+    t.index ["devices_id"], name: "index_actives_on_devices_id"
+  end
 
   create_table "centers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -64,6 +74,7 @@ ActiveRecord::Schema.define(version: 2018_10_11_161212) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "actives", "devices", column: "devices_id"
   add_foreign_key "centers", "zones"
   add_foreign_key "points", "centers"
   add_foreign_key "points", "technologies"
