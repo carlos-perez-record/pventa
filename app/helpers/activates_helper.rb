@@ -1,0 +1,2 @@
+module ActivatesHelper
+end
