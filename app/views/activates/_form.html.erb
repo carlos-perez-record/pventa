@@ -1,0 +1,32 @@
+<div id="activate-modal" class="modal fade"> <!-- product-modal -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= title %></h4>
+      </div>
+      <%= form_for @a, remote: true do |f| %>
+        <div class="modal-body">
+          <div class="form-group"><!-- Tener presente que todos los activos no poseen IP por tanto este campo no es obligatorio -->
+            <%= f.text_field :ip, class: "form-control input-lg", placeholder: "Ingrese la IP del activo fijo si es necesario" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :serial, class: "form-control input-lg", placeholder: "Ingrese el serial del activo fijo" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :nombre, class: "form-control input-lg", placeholder: "Ingrese la placa de registro Record del activo fijo" %>
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-6">Dispositivos Registrados</label>
+            <div class="b_auxiliares">
+              <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Agregar Dispositivo'></span>".html_safe, new_device_path, remote: true %></div>
+            <%= f.select :devices_id, options_for_select(Device.all.collect { |d| [d.nombre, d.id]}), {}, class: "form-control input-sm"%>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Registrar", class: "btn btn-danger btn-lg btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

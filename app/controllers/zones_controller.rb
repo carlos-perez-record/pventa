@@ -37,7 +37,7 @@ class ZonesController < ApplicationController
   def destroy
     zone = Zone.find(params[:id])
     zone.destroy
-    redirect_to zone_path, notice: "La zona fue eliminada con todos sus centros de costos y puntos de ventas"
+    redirect_to zones_path, notice: "La zona fue eliminada con todos sus centros de costos y puntos de ventas"
   end
 
 private
