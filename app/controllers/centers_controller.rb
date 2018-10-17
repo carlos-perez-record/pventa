@@ -11,7 +11,7 @@ class CentersController < ApplicationController
   def create
     @c = Center.new(center_params)
     if @c.save
-      redirect_to zones_path, notice: "Se agrego un nuevo centro de costos"
+      redirect_to zones_path, notice: "Se agrego el nuevo centro de costos '#{@c.nombre}'"
     else
       render :new
     end
@@ -23,8 +23,11 @@ class CentersController < ApplicationController
 
   def update
     @c = Center.find(params[:id])
+    #En su acción de edición, guardar la URL solicitante en el hash sesión, que está disponible en varias solicitudes:
+    session[:return_to] ||= request.referer
     if @c.update(center_params)
-      redirect_to zones_path, notice: "Este centro de Costos ha sido actualizado"
+      #edireccionan a él en su acción de actualización, después de una exitosa Guardar:
+      redirect_to session.delete(:return_to), notice: "El centro de costos '#{@c.nombre}' ha sido actualizado"
     else
       render :edit
     end
@@ -33,7 +36,10 @@ class CentersController < ApplicationController
   def destroy
     center = Center.find(params[:id])
     center.destroy
-    redirect_to centers_path, notice: "El Centro de Costos fue eliminado, y todos los registros de puntos de venta que lo contenian"
+    #En su acción de edición, guardar la URL solicitante en el hash sesión, que está disponible en varias solicitudes:
+    session[:return_to] ||= request.referer
+    #edireccionan a él en su acción de actualización, después de una exitosa Guardar:
+    redirect_to session.delete(:return_to), notice: "El Centro de Costos fue eliminado, y todos los registros de puntos de venta que lo contenian"
   end
 
 private

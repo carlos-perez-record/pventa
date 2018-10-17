@@ -11,4 +11,10 @@
 
 class Center < ApplicationRecord
   has_many :point, dependent: :destroy
+  belongs_to :zone
+  validates :nombre, presence: true
+
+  def to_s
+    nombre
+  end
 end
