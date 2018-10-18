@@ -1,17 +1,22 @@
 class CentersController < ApplicationController
 
+@zone_id
+
   def index
     @c = Center.all
   end
 
   def new
     @c = Center.new
+    @c.zone_id = params[:zone_id]
+    @visibilidad = params[:visible]
   end
 
   def create
     @c = Center.new(center_params)
+    session[:return_to] ||= request.referer
     if @c.save
-      redirect_to zones_path, notice: "Se agrego el nuevo centro de costos '#{@c.nombre}'"
+      redirect_to session.delete(:return_to), notice: "Se agrego el nuevo centro de costos '#{@c.nombre}'"
     else
       render :new
     end
@@ -39,7 +44,7 @@ class CentersController < ApplicationController
     #En su acción de edición, guardar la URL solicitante en el hash sesión, que está disponible en varias solicitudes:
     session[:return_to] ||= request.referer
     #edireccionan a él en su acción de actualización, después de una exitosa Guardar:
-    redirect_to session.delete(:return_to), notice: "El Centro de Costos fue eliminado, y todos los registros de puntos de venta que lo contenian"
+    redirect_to session.delete(:return_to), alert: "El Centro de Costos fue eliminado, y todos los registros de puntos de venta que lo contenian"
   end
 
 private

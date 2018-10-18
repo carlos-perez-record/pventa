@@ -37,7 +37,7 @@ class DevicesController < ApplicationController
   def destroy
     device = Device.find(params[:id])
     device.destroy
-    redirect_to devices_path, notice: "El dispositivo fue eliminado"
+    redirect_to devices_path, alert: "El dispositivo fue eliminado"
   end
 
   private

@@ -4,9 +4,10 @@
       <div class="page-header icons">
         <h1>Centros de Costos Zona: <%= @z %></h1>
         <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Zonas'></span>".html_safe, zones_path %>
-        </div>      
+        <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Registrar Nuevo Centro de Costos para esta Zona'></span>".html_safe, new_center_path(:zone_id=>params[:id], :visible => true ), remote: true %>
+        </div>
+        <% if @z.centers.any? %>
         <table class="table table-striped">
-          <% if @z.centers.any? %>
           <thead>
             <tr>
               <th>NOMBRE</th>
@@ -25,8 +26,7 @@
           <div class="alert alert-info">
             <strong>Info!: </strong> Esta Zona aun no tiene Centros de Costos Registrados!
           </div>
-          <% end %>
-        </table>
+        </table><% end %>
     </div>
   </div>
 </div>

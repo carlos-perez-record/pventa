@@ -9,7 +9,20 @@
         <div class="modal-body">
           <div class="form-group">
             <%= f.text_field :nombre, class: "form-control input-lg", placeholder: "Nombre Nuevo Centro de Costos" %>
+            <% puts "INSTANCIA EN EL FORM #{@c}" %>
           </div>
+          <% if @visibilidad == "true" %>
+            <div class="form-group">
+              <% z = Zone.find(@c.zone_id) %>
+              <label class="control-label col-sm-6">Zona: <%=z.nombre%> </label>
+              <%= f.text_field :zone_id, class: "form-control input-lg", value: z.id, readonly: @visibilidad %>
+            </div>
+          <% elsif @visibilidad == "false"  %>
+          <div class="form-group">
+            <label class="control-label col-sm-6">Seleccione una Zona: </label>
+            <%= f.select :zone_id, options_for_select(Zone.all.collect { |z| [z.nombre, z.id]}), {:include_blank => true}, class: "form-control input-lg"%>
+          </div>
+          <% end %>
         </div>
         <div class="modal-footer">
           <%= f.submit "Registrar", class: "btn btn-danger btn-lg btn-block" %>

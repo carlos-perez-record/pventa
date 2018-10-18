@@ -37,7 +37,7 @@ class ActivatesController < ApplicationController
   def destroy
     activate = Activate.find(params[:id])
     activate.destroy
-    redirect_to activate_path, notice: "El activo fijo fue eliminado"
+    redirect_to activate_path, alert: "El activo fijo fue eliminado"
   end
 
 private
