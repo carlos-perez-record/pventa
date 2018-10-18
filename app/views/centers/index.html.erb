@@ -6,7 +6,7 @@
         <div class="icons">
           <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
           <%= link_to "<span class='glyphicon glyphicon-globe' data-toggle='tooltip' title='ir a Zonas (Para agregar un nuevo centro de costos)'></span>".html_safe, zones_path %>
-          <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Registrar Nuevo Centro de Costos para esta Zona'></span>".html_safe, new_center_path(:zone_id=>nil, :visible => false ), remote: true %>
+          <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nuevo Centro de Costos para esta Zona'></span>".html_safe, new_center_path(:zone_id=>nil, :visible => false ), remote: true %>
         </div>
       </div>
       <table class="table table-striped">

@@ -12,8 +12,6 @@ class DevicesController < ApplicationController
     @d = Device.new(device_params)
     if @d.save
       redirect_to devices_path, notice: "Se agregó un nuevo dispositivo"
-    else
-      render :new
     end
   end
 

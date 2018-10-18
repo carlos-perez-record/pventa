@@ -12,8 +12,6 @@ class ZonesController < ApplicationController
     @z = Zone.new(zone_params)
     if @z.save
       redirect_to zones_path, notice: "Se agrego una nueva Zona"
-    else
-      render :new
     end
   end
 

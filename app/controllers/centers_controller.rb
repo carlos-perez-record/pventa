@@ -17,8 +17,6 @@ class CentersController < ApplicationController
     session[:return_to] ||= request.referer
     if @c.save
       redirect_to session.delete(:return_to), notice: "Se agrego el nuevo centro de costos '#{@c.nombre}'"
-    else
-      render :new
     end
   end
 

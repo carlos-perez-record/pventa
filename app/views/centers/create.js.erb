@@ -5,5 +5,5 @@
   $('#center-modal').modal('hide');
 <% else %>
   // show first error
-  alert('<%= @c.errors.full_messages[0] %>');
+  alert('ERROR: Debe diligenciar todos los campos del formulario');
 <% end %>

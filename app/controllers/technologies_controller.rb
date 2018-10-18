@@ -12,8 +12,6 @@ class TechnologiesController < ApplicationController
     @t = Technology.new(technology_params)
     if @t.save
       redirect_to technologies_path, notice: "Se agrego una nueva tecnologia de comunicaciones"
-    else
-      render :new
     end
   end
 
