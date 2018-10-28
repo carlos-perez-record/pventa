@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :centers, except: [:show]
   resources :zones
   resources :devices
-  resources :activates
+
 end
