@@ -5,9 +5,14 @@ class ActivesController < ApplicationController
   end
 
   def new
+    @a = Active.new
   end
 
   def create
+    @a = Active.new(active_params)
+    if @a.save
+      redirect_to actives_path, notice: "Se agrego un nuevo activo fijo"
+    end
   end
 
   def edit
@@ -18,4 +23,11 @@ class ActivesController < ApplicationController
 
   def destroy
   end
+
+private
+
+  def active_params
+    params.require(:active).permit(:ip, :serial, :placa)
+  end
+
 end

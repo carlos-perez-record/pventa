@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'actives/index'
-  get 'actives/new'
-  get 'actives/create'
-  get 'actives/edit'
-  get 'actives/update'
-  get 'actives/destroy'
   root 'points#index'
 
   get 'login', to: 'sessions#new'
@@ -18,5 +12,6 @@ Rails.application.routes.draw do
   resources :centers, except: [:show]
   resources :zones
   resources :devices
+  resources :actives
 
 end
