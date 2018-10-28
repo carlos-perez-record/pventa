@@ -1,7 +1,5 @@
 class CentersController < ApplicationController
 
-@zone_id
-
   def index
     @c = Center.all
   end
