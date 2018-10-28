@@ -20,8 +20,8 @@
             <td><%= device.nombre %></td>
             <td><%= device.tipo %></td>
             <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Dispositivo'></span>".html_safe, edit_device_path(device), remote: true %>
-              <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar el dispositivo'></span>".html_safe, device, method: :delete, data: { confirm: "¿Estás seguro de eliminar este dispositivo?" }, class: "destroy-room-btn" %></td>
-          </div></tr>
+              <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar el dispositivo'></span>".html_safe, device, method: :delete, data: { confirm: "¿Estás seguro de eliminar este dispositivo?" }, class: "destroy-room-btn" %></div></td>
+          </tr>
           <% end %>
         </table>
       </div>
