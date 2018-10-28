@@ -17,8 +17,8 @@
           <tr>
             <td><%= tecno.descripcion %></td>
             <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tecnologia'></span>".html_safe, edit_technology_path(tecno), remote: true %>
-            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta tecnologia y los puntos de venta que lo contienen'></span>".html_safe, tecno, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta tecnologia, y por consiguiente todos los puntos de venta que la contienen?, de no ser asi cambie primero la tecnologia de los puntos de venta que la contienen y luego regrese a borrarla" } %></td>
-          </div></tr>
+            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta tecnologia y los puntos de venta que lo contienen'></span>".html_safe, tecno, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta tecnologia, y por consiguiente todos los puntos de venta que la contienen?, de no ser asi cambie primero la tecnologia de los puntos de venta que la contienen y luego regrese a borrarla" } %></div></td>
+          </tr>
         <% end %>
       </table>
     </div>

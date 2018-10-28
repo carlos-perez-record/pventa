@@ -22,8 +22,8 @@
           <td><%= center.nombre %></td>
           <td><% z=Zone.find(center.zone_id) %><%=z.nombre %></td>
           <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Centro Costo'></span>".html_safe, edit_center_path(center), remote: true %>
-            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina el Centro de Costo y los puntos de venta que lo contienen'></span>".html_safe, center, method: :delete, data: { confirm: "¿Estás seguro de eliminar este centro de costos, y por consiguiente todos los puntos de venta que lo contienen?, de no ser asi cambie primero el centro de costos de los puntos de venta que la contienen y luego regrese a borrarlo" } %></td>
-        </div></tr>
+            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina el Centro de Costo y los puntos de venta que lo contienen'></span>".html_safe, center, method: :delete, data: { confirm: "¿Estás seguro de eliminar este centro de costos, y por consiguiente todos los puntos de venta que lo contienen?, de no ser asi cambie primero el centro de costos de los puntos de venta que la contienen y luego regrese a borrarlo" } %></div></td>
+        </tr>
         <% end %>
       </table>
     </div>

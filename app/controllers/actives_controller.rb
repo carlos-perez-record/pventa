@@ -1,5 +1,7 @@
 class ActivesController < ApplicationController
+
   def index
+    @a = Active.all
   end
 
   def new
