@@ -8,6 +8,10 @@
       <%= form_for @a, remote: true do |f| %>
         <div class="modal-body">
           <div class="form-group">
+            <label class="control-label col-sm-6">Escoja dispositivo: </label>
+            <%= f.select :devices_id, options_for_select(Device.all.collect { |d| [d.nombre+" "+d.tipo, d.id]}), {:include_blank => true}, class: "form-control input-lg"%>
+          </div>
+          <div class="form-group">
             <%= f.text_field :ip, class: "form-control input-lg", placeholder: "Ip Activo Fijo" %>
           </div>
           <div class="form-group">

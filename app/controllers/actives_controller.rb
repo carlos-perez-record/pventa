@@ -16,18 +16,28 @@ class ActivesController < ApplicationController
   end
 
   def edit
+    @a = Active.find(params[:id])
   end
 
   def update
+    @a = Active.find(params[:id])
+    if @a.update(active_params)
+      redirect_to actives_path, notice: "Este activo fijo ha sido actualizado"
+    else
+      render :edit
+    end
   end
 
   def destroy
+    active = Active.find(params[:id])
+    active.destroy
+    redirect_to actives_path, alert: "El activo fijo ha sido eliminado"
   end
 
 private
 
   def active_params
-    params.require(:active).permit(:ip, :serial, :placa)
+    params.require(:active).permit(:ip, :serial, :placa, :devices_id)
   end
 
 end

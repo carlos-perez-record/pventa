@@ -5,8 +5,8 @@
         <h1>Listado de Activos Fijos</h1>
         <div class="icons">
           <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
-          <%= link_to "<span class='glyphicon glyphicon-globe' data-toggle='tooltip' title='Agregar Nuevo Dispositivo'></span>".html_safe, devices_path %>
           <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nuevo Activo Fijo'></span>".html_safe, new_active_path, remote: true %>
+          <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Registrar Nuevo Dispositivo'></span>".html_safe, new_device_path, remote: true %>
         </div>
       </div>
       <table class="table table-striped">
@@ -21,7 +21,7 @@
         </thead>
         <% @a.each do |active| %>
         <tr>
-          <td>Dispositivo</td>
+          <td><%d=Device.find(active.devices_id)%><%=d.nombre+" "+d.tipo%></td>
           <td><%=active.ip %></td>
           <td><%=active.serial %></td>
           <td><%=active.placa %></td>

@@ -10,6 +10,6 @@
 #
 
 class Device < ApplicationRecord
-
+  has_many :actives, dependent: :destroy
   validates :nombre, presence: true
 end
