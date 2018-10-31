@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_192328) do
+ActiveRecord::Schema.define(version: 2018_10_31_193109) do
 
   create_table "actives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip"
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 2018_10_31_192328) do
     t.string "celda"
     t.index ["center_id"], name: "index_points_on_center_id"
     t.index ["technology_id"], name: "index_points_on_technology_id"
+  end
+
+  create_table "reforms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "fechaIntervenciion"
+    t.date "fechaFinalizacion"
+    t.string "estadoActual"
+    t.string "descripcionReforma"
+    t.float "valor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

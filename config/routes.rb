@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'reforms/index'
+  get 'reforms/new'
+  get 'reforms/create'
+  get 'reforms/edit'
+  get 'reforms/update'
+  get 'reforms/destroy'
   get 'modifications/index'
   get 'modifications/new'
   get 'modifications/create'

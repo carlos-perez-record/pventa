@@ -1,0 +1,2 @@
+class Reform < ApplicationRecord
+end
