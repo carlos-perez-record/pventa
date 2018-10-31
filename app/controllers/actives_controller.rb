@@ -12,6 +12,8 @@ class ActivesController < ApplicationController
     @a = Active.new(active_params)
     if @a.save
       redirect_to actives_path, notice: "Se agrego un nuevo activo fijo"
+    else
+      puts "No se pudo guardar"
     end
   end
 

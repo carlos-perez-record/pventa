@@ -1,0 +1,9 @@
+<% if @a.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", active: @a %>');
+  $('.alert-success').html("El activo fijo ha sido creado").show();
+  $('#center-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('ERROR: Debe diligenciar todos los campos del formulario');
+<% end %>
