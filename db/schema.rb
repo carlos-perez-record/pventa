@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_183545) do
+ActiveRecord::Schema.define(version: 2018_10_31_191625) do
 
   create_table "actives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2018_10_31_183545) do
     t.datetime "updated_at", null: false
     t.bigint "devices_id"
     t.index ["devices_id"], name: "index_actives_on_devices_id"
+  end
+
+  create_table "activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "descripcion"
+    t.integer "unidad"
+    t.integer "cantidad"
+    t.float "vunitario"
+    t.float "vtotal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "centers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
