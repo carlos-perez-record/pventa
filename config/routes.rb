@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'modifications/index'
+  get 'modifications/new'
+  get 'modifications/create'
+  get 'modifications/edit'
+  get 'modifications/update'
+  get 'modifications/destroy'
   get 'activities/index'
   get 'activities/new'
   get 'activities/create'
