@@ -9,4 +9,12 @@
 #
 
 class Zone < ApplicationRecord
+  has_many :centers, dependent: :destroy
+  validates :nombre, presence: true
+
+  accepts_nested_attributes_for :centers
+
+  def to_s
+    nombre
+  end
 end

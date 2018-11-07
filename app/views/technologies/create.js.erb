@@ -5,5 +5,5 @@
   $('#technology-modal').modal('hide');
 <% else %>
   // show first error
-  alert('<%= @t.errors.full_messages[0] %>');
+  alert('ERROR: El campo no puede estar vacio');
 <% end %>

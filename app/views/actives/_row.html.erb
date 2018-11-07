@@ -1,0 +1,9 @@
+<tr id="<%= active.id %>">
+  <td><%= active.ip %></td>
+  <td><%= active.serial %></td>
+  <td><%= active.placa %></td>
+  <td><%= active.devices_id %></td>
+  <td>
+    <%= link_to "Modificar", edit_active_path(active), remote: true %>
+  </td>
+</tr>

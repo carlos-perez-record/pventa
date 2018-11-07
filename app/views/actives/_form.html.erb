@@ -1,0 +1,30 @@
+<div id="active-modal" class="modal fade"> <!-- product-modal -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= title %></h4>
+      </div>
+      <%= form_for @a, remote: true do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.text_field :ip, class: "form-control input-lg", placeholder: "Ip Activo Fijo" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :serial, class: "form-control input-lg", placeholder: "Serial Activo Fijo" %>
+          </div>
+          <div class="form-group">
+            <%= f.number_field :placa, class: "form-control input-lg", placeholder: "Placa Activo Fijo" %>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-6">Escoja dispositivo: </label>
+            <%= f.select :devices_id, options_for_select(Device.all.collect { |d| [d.nombre, d.id]}), {:include_blank => true}, class: "form-control input-lg"%>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Registrar", class: "btn btn-danger btn-lg btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

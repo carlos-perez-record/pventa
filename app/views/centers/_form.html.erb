@@ -5,13 +5,38 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"><%= title %></h4>
       </div>
+      <% if @c.errors.any? %>
+        <div class="alert alert-danger">
+          <ul>
+          <% @c.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
       <%= form_for @c, remote: true do |f| %>
         <div class="modal-body">
-          <div class="form-group">
+          <div class="form-group" data-toggle='tooltip' title='Ingrese el nombre del Centro de Costos'>
             <%= f.text_field :nombre, class: "form-control input-lg", placeholder: "Nombre Nuevo Centro de Costos" %>
           </div>
+          <% if @visibilidad == "true" %>
+            <div class="form-group" data-toggle='tooltip' title='Zona Predefinida, Elemento deshabilitado'>
+              <% z = Zone.find(@c.zone_id) %>
+              <label class="control-label col-sm-6">Zona: <%=z.nombre%> </label>
+              <%= f.text_field :zone_id, class: "form-control input-lg", value: z.id, readonly: @visibilidad %>
+            </div>
+          <% elsif @visibilidad == "false"  %>
+          <div class="form-group">
+            <label class="control-label col-sm-6">Seleccione una Zona: </label>
+            <%= f.select :zone_id, options_for_select(Zone.all.collect { |z| [z.nombre, z.id]}), {:include_blank => true}, class: "form-control input-lg"%>
+          </div>
+          <% else %>
+          <div class="form-group">
+            <label class="control-label col-sm-6">Seleccione una Zona: </label>
+            <%= f.select :zone_id, options_for_select(Zone.all.collect { |z| [z.nombre, z.id]},@c.zone_id), {:include_blank => true}, class: "form-control input-lg"%>
+          </div>
+          <% end %>
         </div>
-
         <div class="modal-footer">
           <%= f.submit "Registrar", class: "btn btn-danger btn-lg btn-block" %>
         </div>

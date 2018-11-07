@@ -2,8 +2,8 @@
   // add the row to the table, show alert and hide modal
   $('table tbody').append(' <%= j render "row", center: @c %>');
   $('.alert-success').html("El centro de costos ha sido creada").show();
-  $('#center-modal').modal('hide');
+  $('#active-modal').modal('hide');
 <% else %>
   // show first error
-  alert('<%= @c.errors.full_messages[0] %>');
+  alert('ERROR: Debe diligenciar todos los campos del formulario');
 <% end %>

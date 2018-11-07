@@ -13,13 +13,20 @@ es:
       point:
         nombre: "Nombre"
         technology_id: "Tecnologia"
-      Technology:
+      technology:
         id: "ID"
         descripcion: "Descripcion"
+      center:
+        nombre: "Nombre"
+        zone_id: "Zona"
 
     errors:
       models:
         point:
           attributes:
             technology:
+              required: ", el campo es requerido"
+        center:
+          attributes:
+            zone:
               required: ", el campo es requerido"

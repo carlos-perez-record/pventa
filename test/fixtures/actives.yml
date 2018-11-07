@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ip: MyString
+  serial: MyString
+  placa: 1
+
+two:
+  ip: MyString
+  serial: MyString
+  placa: 1

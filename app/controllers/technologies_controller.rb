@@ -12,8 +12,6 @@ class TechnologiesController < ApplicationController
     @t = Technology.new(technology_params)
     if @t.save
       redirect_to technologies_path, notice: "Se agrego una nueva tecnologia de comunicaciones"
-    else
-      render :new
     end
   end
 
@@ -33,7 +31,7 @@ class TechnologiesController < ApplicationController
   def destroy
     technology = Technology.find(params[:id])
     technology.destroy
-    redirect_to technologies_path, notice: "La tecnologia fue eliminada, y todos los registros de puntos de venta que la contenian"
+    redirect_to technologies_path, alert: "La tecnologia fue eliminada, y todos los registros de puntos de venta que la contenian"
   end
 
   private
