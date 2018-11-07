@@ -11,7 +11,7 @@ class ModificationsController < ApplicationController
   def create
     @m = Modification.new(modification_params)
     if @m.save
-      redirect_to modfications_path, notice: "Se agrego un nuevo Tipo de Reforma o modificación"
+      redirect_to modifications_path, notice: "Se agrego un nuevo Tipo de Reforma o modificación"
     end
   end
 
@@ -39,7 +39,7 @@ class ModificationsController < ApplicationController
   end
 
 private
-  def zone_params
+  def modification_params
     params.require(:modification).permit(:descripcion)
   end
 

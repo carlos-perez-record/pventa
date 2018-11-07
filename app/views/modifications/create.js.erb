@@ -1,0 +1,9 @@
+<% if @m.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", modification: @m %>');
+  $('.alert-success').html("El tipo de Reforma ha sido creado").show();
+  $('#technology-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('ERROR: El campo no puede estar vacio');
+<% end %>

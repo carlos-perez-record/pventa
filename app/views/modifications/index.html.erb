@@ -1,2 +1,26 @@
-<h1>Modifications#index</h1>
-<p>Find me in app/views/modifications/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="page-header icons">
+        <h1>Listado de Tipos de Reformas</h1>
+        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
+        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nuevo Tipo de Reforma'></span>".html_safe, new_modification_path, remote: true %>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>DESCRIPCION</th>
+            <th>ACCION</th>
+          </tr>
+        </thead>
+        <% @m.each do |modification| %>
+          <tr>
+            <td><%= modification.descripcion %></td>
+            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tipo de Reforma'></span>".html_safe, edit_modification_path(modification), remote: true %>
+            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina este tipo de reforma'></span>".html_safe, modification, method: :delete, data: { confirm: "¿Estas seguro de eliminar este tipo de reforma?" } %></div></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
