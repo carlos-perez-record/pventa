@@ -1,0 +1,9 @@
+<% if @r.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", reform: @r %>');
+  $('.alert-success').html("La reforma ha sido registrada").show();
+  $('#reform-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('ERROR: El campo no puede estar vacio');
+<% end %>

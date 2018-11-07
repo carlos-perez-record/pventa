@@ -1,0 +1,8 @@
+<tr id="<%= reform.id %>">
+  <td><%= reform.fecha %></td>
+  <td><%= reform.proyecto %></td>
+  <td><%= reform.obra %></td>
+  <td>
+    <%= link_to "Editar", edit_reform_path(reform), remote: true %>
+  </td>
+</tr>

@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'reforms/index'
-  get 'reforms/new'
-  get 'reforms/create'
-  get 'reforms/edit'
-  get 'reforms/update'
-  get 'reforms/destroy'
   get 'activities/index'
   get 'activities/new'
   get 'activities/create'
@@ -32,5 +26,6 @@ Rails.application.routes.draw do
   resources :devices
   resources :actives
   resources :modifications
+  resources :reforms
 
 end
