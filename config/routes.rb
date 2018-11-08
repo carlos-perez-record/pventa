@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'unities/index'
+  get 'unities/new'
+  get 'unities/create'
+  get 'unities/edit'
+  get 'unities/update'
+  get 'unities/destroy'
   root 'points#index'
 
   get 'login', to: 'sessions#new'

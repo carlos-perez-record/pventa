@@ -36,6 +36,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 
+#para manejo de moneda
+gem 'accountingjs-rails', '~> 0.0.4'
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -18,8 +18,8 @@
         <% @task.each do |task| %>
           <tr>
             <td><%= task.descripcion %></td>
-            <td><%= task.cantidad %></td>
-            <td>$<%= task.valor_unitario %></td>
+            <td ><%= task.cantidad %></td>
+            <td align="center">$ <%= number_with_delimiter(task.valor_unitario) %></td>
             <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tarea'></span>".html_safe, edit_task_path(task), remote: true %>
             <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Tarea'></span>".html_safe, task, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Tareas?" } %></div></td>
           </tr>

@@ -15,9 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
-//= require_tree .
-
-
+//= require_tree
 $(document).on("turbolinks:load",function(){
   $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();

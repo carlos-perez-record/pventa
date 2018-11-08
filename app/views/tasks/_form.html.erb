@@ -11,12 +11,12 @@
             <%= f.text_area :descripcion, class: "form-control input-lg", placeholder: "Ingresar Nueva Tarea" %>
           </div>
           <div class="form-group">
-            <%= f.number_field :cantidad, class: "form-control input-lg", placeholder: "Ingresar Cantidad" %>
+            <%= f.number_field :cantidad, in: 0..10000000, class: "form-control input-lg", placeholder: "Ingresar Cantidad" %>
           </div>
           <div class="form-group">
             <div class="input-group">
                 <div class="input-group-addon">$</div>
-                <%= f.text_field :valor_unitario, class: "form-control input-lg", placeholder: "Ingresar Valor Unitario" %>
+                <%= f.number_field :valor_unitario, in: 0..10000000, class: "form-control input-lg", placeholder: "Ingresar Valor Unitario" %>
             </div>
           </div>
         </div>
