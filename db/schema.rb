@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_193109) do
+ActiveRecord::Schema.define(version: 2018_11_08_144108) do
 
   create_table "actives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip"
@@ -24,10 +24,6 @@ ActiveRecord::Schema.define(version: 2018_10_31_193109) do
 
   create_table "activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "descripcion"
-    t.integer "unidad"
-    t.integer "cantidad"
-    t.float "vunitario"
-    t.float "vtotal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,19 +66,19 @@ ActiveRecord::Schema.define(version: 2018_10_31_193109) do
   end
 
   create_table "reforms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "fechaIntervenciion"
-    t.date "fechaFinalizacion"
-    t.string "estadoActual"
-    t.string "descripcionReforma"
-    t.float "valor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "fecha"
+    t.string "proyecto"
+    t.string "obra"
   end
 
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cantidad"
+    t.decimal "valor_unitario", precision: 10
   end
 
   create_table "technologies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

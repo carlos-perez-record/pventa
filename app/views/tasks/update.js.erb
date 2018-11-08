@@ -1,0 +1,9 @@
+<% if @task.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#<%= @task.id %>').replaceWith(' <%= j render "row", task: @task %>');
+  $('.alert-success').html("La tarea ha sido modificada").show();
+  $('#task-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @task.errors.full_messages[0] %>');
+<% end %>

@@ -1,14 +1,14 @@
-<div id="technology-modal" class="modal fade">
+<div id="activity-modal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"><%= title %></h4>
       </div>
-      <%= form_for @t, remote: true do |f| %>
+      <%= form_for @ac, remote: true do |f| %>
         <div class="modal-body">
           <div class="form-group">
-            <%= f.text_field :descripcion, class: "form-control input-lg", placeholder: "Ingresar Nueva Tecnologia" %>
+            <%= f.text_field :descripcion, class: "form-control input-lg", placeholder: "Ingresar Nueva Actividad" %>
           </div>
         </div>
 

@@ -1,0 +1,9 @@
+<% if @r.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#<%= @r.id %>').replaceWith(' <%= j render "row", technology: @r %>');
+  $('.alert-success').html("La Reforma ha sido modificada").show();
+  $('#reform-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @r.errors.full_messages[0] %>');
+<% end %>

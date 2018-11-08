@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+
   def index
     @ac = Activity.all
   end
@@ -39,7 +40,7 @@ class ActivitiesController < ApplicationController
 
 private
   def activity_params
-    params.require(:activity).permit(:descripcion, :unidad, :vunitario, :vtotal)
-
+    params.require(:activity).permit(:descripcion)
+  end
 
 end

@@ -1,0 +1,9 @@
+<% if @task.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", task: @task %>');
+  $('.alert-success').html("La tarea ha sido creada").show();
+  $('#task-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('ERROR: El campo no puede estar vacio');
+<% end %>
