@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'tasks/index'
-  get 'tasks/new'
-  get 'tasks/create'
-  get 'tasks/edit'
-  get 'tasks/update'
-  get 'tasks/destroy'
+
   root 'points#index'
 
   get 'login', to: 'sessions#new'
@@ -22,5 +17,6 @@ Rails.application.routes.draw do
   resources :modifications
   resources :reforms
   resources :activities
+  resources :tasks
 
 end
