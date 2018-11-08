@@ -1,0 +1,9 @@
+<% if @ac.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", activity: @ac %>');
+  $('.alert-success').html("La actividad ha sido registrada").show();
+  $('#activity-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('ERROR: El campo no puede estar vacio');
+<% end %>

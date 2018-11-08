@@ -1,0 +1,9 @@
+<% if @ac.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#<%= @ac.id %>').replaceWith(' <%= j render "row", activity: @ac %>');
+  $('.alert-success').html("La Actividad ha sido modificada").show();
+  $('#activity-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @ac.errors.full_messages[0] %>');
+<% end %>

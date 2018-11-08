@@ -1,4 +1,3 @@
-
 <% if @t.errors.empty? %>
   // add the row to the table, show alert and hide modal
   $('table tbody tr#<%= @t.id %>').replaceWith(' <%= j render "row", technology: @t %>');
