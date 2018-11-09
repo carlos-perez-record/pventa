@@ -35,6 +35,6 @@ class TasksController < ApplicationController
 
   private
     def task_params
-      params.require(:task).permit(:descripcion, :cantidad, :valor_unitario)
+      params.require(:task).permit(:descripcion, :cantidad, :valor_unitario, :unity_id)
     end
 end
