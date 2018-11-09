@@ -1,0 +1,20 @@
+<div id="unity-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= title %></h4>
+      </div>
+      <%= form_for @u, remote: true do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.text_field :unidad, class: "form-control input-lg", placeholder: "Ingresar Unidad" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Registrar", class: "btn btn-danger btn-lg btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_214604) do
+ActiveRecord::Schema.define(version: 2018_11_09_133909) do
 
   create_table "actives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 2018_11_08_214604) do
     t.datetime "updated_at", null: false
     t.integer "cantidad"
     t.integer "valor_unitario"
+    t.bigint "unity_id"
+    t.index ["unity_id"], name: "index_tasks_on_unity_id"
   end
 
   create_table "technologies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -113,4 +115,5 @@ ActiveRecord::Schema.define(version: 2018_11_08_214604) do
   add_foreign_key "centers", "zones"
   add_foreign_key "points", "centers"
   add_foreign_key "points", "technologies"
+  add_foreign_key "tasks", "unities"
 end
