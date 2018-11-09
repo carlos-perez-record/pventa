@@ -36,6 +36,6 @@ class ReformsController < ApplicationController
 
   private
     def reform_params
-      params.require(:reform).permit(:fecha, :proyecto, :obra)
+      params.require(:reform).permit(:fecha, :proyecto, :obra, :modification_id)
     end
 end

@@ -1,4 +1,4 @@
-<div id="reform-modal" class="modal fade"> 
+<div id="reform-modal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,6 +9,10 @@
         <div class="modal-body">
           <div class="form-group">
             <%= f.date_field :fecha, class: "form-control input-lg", placeholder: "Ingres la Fecha de la Reforma" %>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-6">Seleccione el tipo de Reforma a la que Corresponde: </label>
+            <%= f.select :modification_id, options_for_select(Modification.all.collect { |m| [m.descripcion, m.id]},@r.modification_id), {:include_blank => true}, class: "form-control input-lg"%>
           </div>
           <div class="form-group">
             <%= f.text_field :proyecto, class: "form-control input-lg", placeholder: "Ingrese el Nombre del Proyecto" %>
