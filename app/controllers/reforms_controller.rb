@@ -15,6 +15,10 @@ class ReformsController < ApplicationController
     end
   end
 
+  def show
+    @r = Reform.find(params[:id])
+  end
+
   def edit
     @r = Reform.find(params[:id])
   end

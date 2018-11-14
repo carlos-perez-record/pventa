@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="page-header icons">
+        <h1>Actividades: <%= @r %></h1>
+        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Zonas'></span>".html_safe, zones_path %>
+        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Zona'></span>".html_safe, new_zone_path, remote: true %>
+        <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Registrar Nuevo Centro de Costos para esta Zona'></span>".html_safe, new_center_path(:zone_id=>params[:id], :visible => true ), remote: true %>
+      </div>
+        <% if @r.task.any? %>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>DESCRIPCION</th>
+                <th>REFORMA</th>
+                <th>ACTIVIDAD</th>
+                <th>CANTIDAD</th>
+                <th>VALOR UNITARIO</th>
+                <th>VALOR TOTAL</th>
+                <th>ACCION</th>
+              </tr>
+            </thead>
+          </table>
+        <% end %>
+    </div>
+  </div>
+</div>
