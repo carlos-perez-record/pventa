@@ -1,18 +1,30 @@
 <div class="container" id="myDIV">
   <div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
-      <div class="page-header">
-        <h1>Puntos de Venta - Zona: Monteria</h1>
+    <% unless signed_in? %>
+    <h1 style="font-family:Dosis;" aling="center">WikiPuntos ® </h1>
+    <% end %>
+    <div class="col-sm-8 col-sm-offset-2">
+      <% if signed_in? %>
+        <div class="page-header">
+          <h1>Puntos de Venta - Zona: Monteria</h1>
+        </div>
+        <div class="points">
+          <% @p.each do |pventa| %>
+            <%= link_to pventa do %><div class="point clearfix" id="clearf" data-toggle="tooltip" title="Clic para mas información de este punto de venta">
+              <div class="point-details">
+                <span class="point-nombre"><%= image_tag(pventa.picture.url, :width => 50, :height => 50) %><b> COD:</b><%= pventa.codigo %>,<b> NOMBRE:</b> <%=pventa.nombre%></span>
+
+              </div>
+          </div><% end %>
+          <% end %>
+        </div>
+      <%  else %>
+        <video controls="" autoplay>
+          <source src="video/Video_Record.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
       </div>
-      <div class="points">
-        <% @p.each do |pventa| %>
-        <%= link_to pventa do %><div class="point clearfix" id="clearf" data-toggle="tooltip" title="Clic para mas información de este punto de venta">
-          <div class="point-details">
-            <span class="point-nombre"><%= image_tag(pventa.picture.url, :width => 50, :height => 50) %><b> COD:</b><%= pventa.codigo %>,<b> NOMBRE:</b> <%=pventa.nombre%></span>
-          </div>
-        </div><% end %>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

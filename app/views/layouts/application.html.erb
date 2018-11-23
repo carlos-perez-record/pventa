@@ -9,6 +9,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
   </head>
 
   <body>
@@ -26,7 +27,9 @@
               </button>
               <a class="navbar-brand" href="" data-toggle="tooltip" title="Pagina de Inicio">
                 <%= link_to image_tag(ActionController::Base.helpers.asset_path('logorecords.png')), root_path, class: "navbar-brand" %>
-                <%= link_to "App Puntos de Venta", root_path, class: "navbar-brand" %>
+                <% if signed_in? %>
+                  <%= link_to "WikiPuntos ®", root_path, class: "navbar-brand" %>
+                <% end %>
               </a>
             </div> <!--Cierra navbar header -->
 
