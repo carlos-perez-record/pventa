@@ -59,7 +59,7 @@
                         <td><%= reform.proyecto %></td>
                         <td><%= reform.obra %></td>
                         <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Reforma'></span>".html_safe, edit_reform_path(reform), remote: true %>
-                              <%= link_to "<span class='glyphicon glyphicon-eye-open' data-toggle='tooltip' title='Ver las tareas realizadas en esta reforma'></span>".html_safe, task_path(reform) %>
+                              <%= link_to "<span class='glyphicon glyphicon-eye-open' data-toggle='tooltip' title='Ver las tareas realizadas en esta reforma'></span>".html_safe, reform_path(reform) %>
                               <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar esta reforma'></span>".html_safe, reform, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Reforma" } %>
                             </div>
                         </td>

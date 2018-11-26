@@ -20,6 +20,7 @@ class ReformsController < ApplicationController
 
   def show
     @r = Reform.find(params[:id])
+
   end
 
   def edit
