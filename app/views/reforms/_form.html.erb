@@ -20,7 +20,25 @@
           <div class="form-group">
             <%= f.text_area :obra, class: "form-control input-lg", placeholder: "Describa la Obra Realizada" %>
           </div>
+          <% if @visibilidad == "true" %>
+          <div class="form-group" data-toggle='tooltip' title='Punto de Venta, Elemento deshabilitado'>
+            <% p = Point.find(@r.point_id) %>
+            <label class="control-label col-sm-6"><%=p.nombre%></label>
+            <%= f.text_field :point_id, class: "form-control input-lg", value: p.id, readonly: @visibilidad %>
+          </div>
         </div>
+        <% elsif @visibilidad == "false"  %>
+        <div class="form-group">
+          <label class="control-label col-sm-6">Seleccione Punto de Venta: </label>
+          <%= f.select :point_id, options_for_select(Point.all.collect { |p| [p.codigo, p.id]}), {:include_blank => true}, class: "form-control input-lg"%>
+        </div>
+        <% else %>
+        <div class="form-group">
+          <label class="control-label col-sm-6">Seleccione un punto de venta: </label>
+          <%= f.select :point_id, options_for_select(Point.all.collect { |p| [p.nombre, p.id]},@r.point_id), {:include_blank => true}, class: "form-control input-lg"%>
+        </div>
+      </div>
+      <% end %>
         <div class="modal-footer">
           <%= f.submit "Registrar", class: "btn btn-danger btn-lg btn-block" %>
         </div>
