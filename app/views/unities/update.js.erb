@@ -1,0 +1,9 @@
+<% if @u.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#<%= @u.id %>').replaceWith(' <%= j render "row", unity: @u %>');
+  $('.alert-success').html("La unidad de medida ha sido modificada").show();
+  $('#unity-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @u.errors.full_messages[0] %>');
+<% end %>

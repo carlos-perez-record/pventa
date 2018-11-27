@@ -18,6 +18,7 @@
 
 class Point < ApplicationRecord
   mount_uploader :picture, FotoUploader
+  has_many :reforms
   belongs_to :technology
   belongs_to :center
   # Se implementan las validaciones.

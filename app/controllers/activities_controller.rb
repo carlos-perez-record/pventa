@@ -6,12 +6,15 @@ class ActivitiesController < ApplicationController
 
   def new
     @ac = Activity.new
+    @ac.reform_id = params[:reform_id]
+    @visibilidad = params[:visible]
   end
 
   def create
     @ac = Activity.new(activity_params)
+    session[:return_to] ||= request.referer
     if @ac.save
-      redirect_to activities_path, notice: "Se agrego una nueva actividad"
+      redirect_to session.delete(:return_to), notice: "Se agrego una nueva actividad"
     end
   end
 
@@ -26,7 +29,8 @@ class ActivitiesController < ApplicationController
   def update
     @ac = Activity.find(params[:id])
     if @ac.update(activity_params)
-      redirect_to activities_path, notice: "Esta actividad ha sido actualizada"
+      session[:return_to] ||= request.referer
+      redirect_to session.delete(:return_to), notice: "La Actividad ha sido actualizada"
     else
       render :edit
     end
@@ -35,12 +39,13 @@ class ActivitiesController < ApplicationController
   def destroy
     activity = Activity.find(params[:id])
     activity.destroy
-    redirect_to activities_path, alert: "La actividad ha sido eliminada"
+    session[:return_to] ||= request.referer
+    redirect_to session.delete(:return_to), alert: "La actividad ha sido eliminada"
   end
 
 private
   def activity_params
-    params.require(:activity).permit(:descripcion)
+    params.require(:activity).permit(:descripcion, :reform_id)
   end
 
 end

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="page-header icons">
+        <h1>Listado de Unidades de Medida</h1>
+        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
+        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Unidad de Medida'></span>".html_safe, new_unity_path, remote: true %>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>UNIDAD</th>
+            <th>SIGLA</th>
+            <th>ACCION</th>
+          </tr>
+        </thead>
+        <% @u.each do |unity| %>
+          <tr>
+            <td><%= unity.unidad %></td>
+            <td><%= unity.sigla %></td>
+            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Unidad de Medida'></span>".html_safe, edit_unity_path(unity), remote: true %>
+            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Unidad de Medida'></span>".html_safe, unity, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta unidad de medida" } %></div></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

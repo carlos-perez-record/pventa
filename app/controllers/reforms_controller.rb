@@ -6,13 +6,21 @@ class ReformsController < ApplicationController
 
   def new
     @r = Reform.new
+    @r.point_id = params[:point_id]
+    @visibilidad = params[:visible]
   end
 
   def create
     @r = Reform.new(reform_params)
+    session[:return_to] ||= request.referer
     if @r.save
-      redirect_to reforms_path, notice: "Se agrego una nueva Reforma"
+      redirect_to session.delete(:return_to), notice: "Se agrego la reforma con fecha: '#{@r.fecha}'"
     end
+  end
+
+  def show
+    @r = Reform.find(params[:id])
+
   end
 
   def edit
@@ -22,7 +30,8 @@ class ReformsController < ApplicationController
   def update
     @r = Reform.find(params[:id])
     if @r.update(reform_params)
-      redirect_to reforms_path, notice: "Esta Reforma ha sido actualizada"
+      session[:return_to] ||= request.referer
+      redirect_to session.delete(:return_to), notice: "Esta Reforma ha sido actualizada"
     else
       render :edit
     end
@@ -31,11 +40,12 @@ class ReformsController < ApplicationController
   def destroy
     reform = Reform.find(params[:id])
     reform.destroy
-    redirect_to reforms_path, alert: "La Reforma fue eliminada"
+    session[:return_to] ||= request.referer
+    redirect_to session.delete(:return_to), alert: "La reforma fue eliminada"
   end
 
   private
     def reform_params
-      params.require(:reform).permit(:fecha, :proyecto, :obra)
+      params.require(:reform).permit(:fecha, :proyecto, :obra, :modification_id, :point_id)
     end
 end

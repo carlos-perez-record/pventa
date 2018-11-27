@@ -1,9 +1,97 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <title></title>
-    </head>
-    <body>
-      <h1>Aqui va la informacion del punto</h1>
-    </body>
-    </html>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="page-header icons">
+        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
+        <%= link_to "<span class='glyphicon glyphicon-file' data-toggle='tooltip' title='Generar Reporte'></span>".html_safe, point_path(@p, :format=>'pdf') %>
+        <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Informacion P.V.'></span>".html_safe, edit_point_path(@p) %>
+        <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar P.V.'></span>".html_safe, @p, method: :delete, data: { confirm: "¿Estás seguro de eliminar este punto de venta?" } %>
+      </div>
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home" style="color:red"><b>Datos Basicos</b></a></li>
+        <li><a data-toggle="tab" href="#menu1" style="color:red"><b>Reformas Fisicas</b></a></li>
+        <li><a data-toggle="tab" href="#menu2" style="color:red"><b>Telecomunicaciones</b></a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <div class="table-responsive"> <!--Abre div 7-->
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><h3><b>FOTO</b></h3></th>
+                  <th><h3><b>DATOS BASICOS</b></h3></th>
+                </tr>
+              </thead>
+              <tr>
+                <td rowspan="6">
+                  <div align="center"> <!--Abre div 8-->
+                    <%= image_tag(@p.picture.url, :width => 340, :height => 270) %>
+                  </div>
+                <td><b>Nombre:</b> <%= @p.nombre %></td></tr>
+                <tr><td><b>Codigo:</b> <%= @p.codigo %></td></tr>
+                <tr><td><b>Zona: </b> <% c=Center.find(@p.center_id) %><% z=Zone.find(c.zone_id)%> <%=z.nombre %></td></tr>
+                <tr><td><b>Centro de Costos: </b><%=c.nombre %></td></tr>
+                <tr><td><b>Direccion: </b> <%= @p.direccion %></td></tr>
+                <tr><td><b>Telefono: </b><%= @p.telefono %></td></tr>
+            </table>
+          </div>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+          <div class="page-header icons">
+            <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Reforma'></span>".html_safe, new_reform_path(:point_id=>params[:id], :visible => true ), remote: true %>
+          </div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <% if @p.reforms.any? %>
+                    <thead>
+                      <tr>
+                        <th>FECHA</th>
+                        <th>TIPO DE REFORMA</th>
+                        <th>PROYECTO</th>
+                        <th>OBRA</th>
+                        <th>ACCION</th>
+                      </tr>
+                    </thead>
+                    <% @p.reforms.each do |reform| %>
+                    <tr>
+                        <td><%= reform.fecha %></td>
+                        <td><%= (Modification.find(reform.modification_id)).descripcion %></td>
+                        <td><%= reform.proyecto %></td>
+                        <td><%= reform.obra %></td>
+                        <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Reforma'></span>".html_safe, edit_reform_path(reform), remote: true %>
+                              <%= link_to "<span class='glyphicon glyphicon-eye-open' data-toggle='tooltip' title='Ver las Actividades y Tareas realizadas en esta reforma'></span>".html_safe, reform_path(reform) %>
+                              <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar esta reforma'></span>".html_safe, reform, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Reforma" } %>
+                            </div>
+                        </td>
+                      <% end %>
+                    </tr>
+                    <% else %><br>
+                    <div class="alert alert-info">
+                      <strong>Info!: </strong> Este punto de venta aun no tiene registrado ningun tipo de reforma!
+                    </div>
+                <% end %>
+              </table>
+            </div>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+          <div class="table-responsive">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><h3><b>TECNOLOGIA</b></h3></th>
+                  <th><h3><b>SERIAL</b></h3></th>
+                  <th><h3><b>CELDA</b></h3></th>
+                </tr>
+              </thead>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

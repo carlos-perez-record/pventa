@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-10 col-sm-offset-1">
       <div class="page-header icons">
         <h1>Listado de Reformas</h1>
         <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, reforms_path %>
-        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Reforma'></span>".html_safe, new_reform_path, remote: true %>
+        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Reforma'></span>".html_safe, new_reform_path(:point_id=>nil, :visible => false ), remote: true %>
       </div>
       <table class="table table-striped">
         <thead>
           <tr>
             <th>FECHA</th>
+            <th>PUNTO DE VENTA</th>
+            <th>TIPO REFORMA</th>
             <th>PROYECTO</th>
             <th>OBRA</th>
             <th>ACCION</th>
@@ -18,10 +20,15 @@
         <% @r.each do |reform| %>
           <tr>
             <td><%= reform.fecha %></td>
+            <td><%= (Point.find(reform.point_id)).nombre %> (Codigo: <%= (Point.find(reform.point_id)).codigo %>)</td>
+            <td><%= (Modification.find(reform.modification_id)).descripcion %></td>
             <td><%= reform.proyecto %></td>
             <td><%= reform.obra %></td>
             <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Reforma'></span>".html_safe, edit_reform_path(reform), remote: true %>
-            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar esta reforma'></span>".html_safe, reform, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Reforma" } %></div></td>
+                  <%= link_to "<span class='glyphicon glyphicon-eye-open' data-toggle='tooltip' title='Ver las tareas realizadas en esta reforma'></span>".html_safe, reform_path(reform) %>
+                  <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar esta reforma'></span>".html_safe, reform, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Reforma" } %>
+                </div>
+            </td>
           </tr>
         <% end %>
       </table>

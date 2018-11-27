@@ -4,7 +4,7 @@
       <div class="page-header icons">
         <h1>Listado de Actividades</h1>
         <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, activities_path %>
-        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_activity_path, remote: true %>
+        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_activity_path(:reform_id=>nil, :visible => false ), remote: true %>
       </div>
       <table class="table table-striped">
         <thead>

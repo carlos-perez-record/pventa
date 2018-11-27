@@ -8,19 +8,41 @@
       <%= form_for @task, remote: true do |f| %>
         <div class="modal-body">
           <div class="form-group">
-            <%= f.text_area :descripcion, class: "form-control input-lg", placeholder: "Ingresar Nueva Tarea" %>
+            <%= f.text_area :descripcion, maxlength:200, class: "form-control input-lg", placeholder: "Ingresar Nueva Tarea" %>
+          </div>
+          <% if @visibilidad == "true" %>
+            <div class="form-group" data-toggle='tooltip' title='Actividad Predefinida, Elemento desactivado'>
+              <% ac = Activity.find(@task.activity_id) %>
+              <label class="control-label col-sm-6">Actividad: <%=ac.descripcion%> </label>
+              <%= f.text_field :activity_id, class: "form-control input-lg", value: (ac.id).to_i, readonly: @visibilidad %>
+            </div>
+          <% elsif @visibilidad == "false"  %>
+            <div class="form-group">
+              <label class="control-label col-sm-6">Seleccione la Actividad a la que Corresponde: </label>
+              <%= f.select :activity_id, options_for_select(Activity.all.collect { |a| [a.descripcion, a.id]},@task.activity_id), {:include_blank => true}, class: "form-control input-lg"%>
+            </div>
+          <% else %>
+            <div class="form-group">
+              <label class="control-label col-sm-6">Actividad: </label>
+              <% ac = Activity.find(@task.activity_id) %>
+              <label class="control-label col-sm-6"><%=ac.obra%> </label>
+              <%= f.text_field :activity_id, class: "form-control input-lg", value: ac.id, readonly: "true" %>
+            </div>
+          <% end %>
+          <div class="form-group">
+            <%= f.number_field :cantidad, in: 0..10000000, step: 0.1, class: "form-control input-lg", placeholder: "Ingresar Cantidad" %>
           </div>
           <div class="form-group">
-            <%= f.number_field :cantidad, class: "form-control input-lg", placeholder: "Ingresar Cantidad" %>
+            <label class="control-label col-sm-6">Seleccione la Unidad de Medida: </label>
+            <%= f.select :unity_id, options_for_select(Unity.all.collect { |u| [u.unidad+" ("+u.sigla+")", u.id]},@task.unity_id), {:include_blank => true}, class: "form-control input-lg"%>
           </div>
           <div class="form-group">
             <div class="input-group">
                 <div class="input-group-addon">$</div>
-                <%= f.number_field :valor_unitario, class: "form-control input-lg", placeholder: "Ingresar Valor Unitario" %>
+                <%= f.number_field :valor_unitario, in: 0..10000000, step:'any', class: "form-control input-lg", placeholder: "Ingresar Valor Unitario" %>
             </div>
           </div>
         </div>
-
         <div class="modal-footer">
           <%= f.submit "Registrar", class: "btn btn-danger btn-lg btn-block" %>
         </div>

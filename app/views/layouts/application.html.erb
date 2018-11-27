@@ -9,6 +9,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
   </head>
 
   <body>
@@ -26,7 +27,9 @@
               </button>
               <a class="navbar-brand" href="" data-toggle="tooltip" title="Pagina de Inicio">
                 <%= link_to image_tag(ActionController::Base.helpers.asset_path('logorecords.png')), root_path, class: "navbar-brand" %>
-                <%= link_to "App Puntos de Venta", root_path, class: "navbar-brand" %>
+                <% if signed_in? %>
+                  <%= link_to "WikiPuntos ®", root_path, class: "navbar-brand" %>
+                <% end %>
               </a>
             </div> <!--Cierra navbar header -->
 
@@ -44,6 +47,8 @@
                       <li class="dropdown-submenu">
                         <a class="test" tabindex="-1" href="">Tareas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                          <li><a tabindex="-1" href="#"><%= link_to "Ver Unidades", unities_path %></a></li>
+                          <li><a tabindex="-1" href="#"><%= link_to "Agregar Unidad", new_unity_path, remote: true %></a></li>
                           <li><a tabindex="-1" href="#"><%= link_to "Ver Tareas", tasks_path %></a></li>
                           <li><a tabindex="-1" href="#"><%= link_to "Agregar Tarea", new_task_path, remote: true %></a></li>
                           <li><a tabindex="-1" href="#"><%= link_to "Ver Actividad", activities_path %></a></li>
@@ -56,7 +61,7 @@
                           <li><a tabindex="-1" href="#"><%= link_to "Ver Reformas", reforms_path %></a></li>
                           <li><a tabindex="-1" href="#"><%= link_to "Agregar Reforma", new_reform_path, remote: true %></a></li>
                           <li><a tabindex="-1" href="#"><%= link_to "Ver Tipo de Reforma", modifications_path %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Agregar Tipo de Reforma", new_modification_path, remote: true %></a></li>
+                          <li><a tabindex="-1" href="#"><%= link_to "Agr. T. de Reforma", new_modification_path, remote: true %></a></li>
                         </ul>
                       </li>
                       <li class="dropdown-submenu">

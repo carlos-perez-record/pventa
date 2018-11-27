@@ -8,22 +8,26 @@
         <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Registrar Nuevo Centro de Costos para esta Zona'></span>".html_safe, new_center_path(:zone_id=>params[:id], :visible => true ), remote: true %>
         </div>
         <% if @z.centers.any? %>
-        <table class="table table-striped">
-          <thead>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>NOMBRE</th>
+                <th>ZONA</th>
+                <th>ACCION</th>
+              </tr>
+            </thead>
             <tr>
-              <th>NOMBRE</th>
-              <th>ZONA</th>
-              <th>ACCION</th>
+              <% @z.centers.each do |center| %>
+                <td><%= center.nombre %></td>
+                <td><%=@z.nombre %></td>
+                <td>
+                  <div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Centro Costo'></span>".html_safe, edit_center_path(center), remote: true %>
+                    <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina el Centro de Costo y los puntos de venta que lo contienen'></span>".html_safe, center, method: :delete, data: { confirm: "¿Estás seguro de eliminar este centro de costos, y por consiguiente todos los puntos de venta que lo contienen?, de no ser asi cambie primero el centro de costos de los puntos de venta que la contienen y luego regrese a borrarlo" } %>
+                  </div>
+                </td>
             </tr>
-          </thead>
-          <tr>
-            <% @z.centers.each do |center| %>
-            <td><%= center.nombre %></td>
-            <td><%=@z.nombre %></td>
-            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Centro Costo'></span>".html_safe, edit_center_path(center), remote: true %>
-              <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina el Centro de Costo y los puntos de venta que lo contienen'></span>".html_safe, center, method: :delete, data: { confirm: "¿Estás seguro de eliminar este centro de costos, y por consiguiente todos los puntos de venta que lo contienen?, de no ser asi cambie primero el centro de costos de los puntos de venta que la contienen y luego regrese a borrarlo" } %></td>
-          </div></tr><% end %>
-          <% else %>
+            <% end %>
+        <% else %>
           <div class="alert alert-info">
             <strong>Info!: </strong> Esta Zona aun no tiene Centros de Costos Registrados!
           </div>

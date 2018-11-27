@@ -1,0 +1,9 @@
+<% if @u.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", unity: @u %>');
+  $('.alert-success').html("La unidad de medida ha sido creada").show();
+  $('#technology-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('ERROR: El campo no puede estar vacio');
+<% end %>
