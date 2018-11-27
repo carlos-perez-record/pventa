@@ -13,7 +13,6 @@
           <thead>
             <tr>
               <th>DESCRIPCION</th>
-              <th>REFORMA</th>
               <th>ACTIVIDAD</th>
               <th>CANTIDAD</th>
               <th>UNIDAD</th>
@@ -25,7 +24,6 @@
           <% @task.each do |task| %>
             <tr>
               <td><%= task.descripcion %></td>
-              <td><%= (Reform.find(task.reform_id)).obra%> (<%= (Reform.find(task.reform_id)).fecha%>)</td>
               <td><%= (Activity.find(task.activity_id)).descripcion %></td>
               <td align="center"><%= number_with_delimiter(task.cantidad, separator:',') %></td>
               <td align="center"><% u=Unity.find(task.unity_id) %><%=u.sigla%></td>
