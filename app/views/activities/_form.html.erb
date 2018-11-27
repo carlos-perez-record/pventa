@@ -32,8 +32,10 @@
           </div>
           <% else %>
           <div class="form-group">
-            <label class="control-label col-sm-6">Seleccione una Reforma: </label>
-            <%= f.select :reform_id, options_for_select(Reform.all.collect { |r| [r.obra, r.id]},@ac.reform_id), {:include_blank => true}, class: "form-control input-lg"%>
+            <label class="control-label col-sm-6">Reforma: </label>
+            <% r = Reform.find(@ac.reform_id) %>
+            <label class="control-label col-sm-6"><%=r.obra%> </label>
+            <%= f.text_field :reform_id, class: "form-control input-lg", value: r.id, readonly: "true" %>
           </div>
           <% end %>
         </div>

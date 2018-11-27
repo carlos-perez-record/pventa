@@ -13,6 +13,7 @@
             <div class="page-header icons">
               <h4><b><%= activity.descripcion %></b></h4>
               <div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Actividad'></span>".html_safe, edit_activity_path(activity), remote: true %>
+                <%= link_to "<span class='glyphicon glyphicon-list-alt' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_activity_path, remote: true %>
                 <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Actividad'></span>".html_safe, activity, method: :delete, data: { confirm: "¿Estás seguro de eliminar Actividad?" } %></div>
             </div>
             <table class="table table-striped">
@@ -43,7 +44,7 @@
                   </td>
                 </tr>
                 <% end %>
-            </table>            
+            </table>
           <% end %>
         <% else %>
         <div class="alert alert-info">
