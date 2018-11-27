@@ -30,7 +30,8 @@ class ReformsController < ApplicationController
   def update
     @r = Reform.find(params[:id])
     if @r.update(reform_params)
-      redirect_to reforms_path, notice: "Esta Reforma ha sido actualizada"
+      session[:return_to] ||= request.referer
+      redirect_to session.delete(:return_to), notice: "Esta Reforma ha sido actualizada"
     else
       render :edit
     end

@@ -5,42 +5,50 @@
         <% session[:return_to] ||= request.referer %>
         <h1>Actividades: <%= @r.modification.descripcion %> <% @r.point %></h1>
         <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Atras'></span>".html_safe, session.delete(:return_to) %>
-        <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_center_path(:zone_id=>params[:id], :visible => true ), remote: true %>
+        <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_activity_path(:reform_id=>params[:id], :visible => true ), remote: true %>
       </div>
-        <% if @r.task.any? %>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>DESCRIPCION</th>
-                <th>REFORMA</th>
-                <th>CANTIDAD</th>
-                <th>VALOR UNITARIO</th>
-                <th>VALOR TOTAL</th>
-                <th>ACCION</th>
-              </tr>
-            </thead>
-            <% @r.task.each do |task| %>
-              <tr>
-                <td><%= task.descripcion %></td>
-                <td><%= (Reform.find(task.reform_id)).obra%> (<%= (Reform.find(task.reform_id)).fecha%>)</td>
-                <td align="center"><%= number_with_delimiter(task.cantidad, separator:',') %></td>
-                <td align="center"><% u=Unity.find(task.unity_id) %><%=u.sigla%></td>
-                <td align="right">$</td>
-                <td align="right"><%= number_with_delimiter(task.valor_unitario, delimiter:'.', separator:',') %></td>
-                <td align="right">$</td>
-                <td align="right"><% total= (task.cantidad)*(task.valor_unitario) %><%=number_with_delimiter(total, delimiter:'.', separator:',')%></td>
-                <td align="center"><div class="icons">
-                      <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tarea'></span>".html_safe, edit_task_path(task), remote: true %>
-                      <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Tarea'></span>".html_safe, task, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Tareas?" } %>
-                    </div>
-                </td>
-              </tr>
-              <% end %>
-          </table>
-          <% else %>
-          <div class="alert alert-info">
-            <strong>Info!: </strong> Este proyecto de Reforma aun no tiene registrada ningun actividad, para agregar las actividades de clic en el icono <span class='glyphicon glyphicon-plus-sign'>
-          </div>
+        <% if @r.activity.any? %>
+          <% @r.activity.each do |activity| %>
+            <% a = Activity.find(activity.id) %>
+            <div class="page-header icons">
+              <h4><b><%= activity.descripcion %></b></h4>
+              <div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Actividad'></span>".html_safe, edit_activity_path(activity), remote: true %>
+                <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Actividad'></span>".html_safe, activity, method: :delete, data: { confirm: "¿Estás seguro de eliminar Actividad?" } %></div>
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>DESCRIPCION</th>
+                  <th>REFORMA</th>
+                  <th>CANTIDAD</th>
+                  <th>VALOR UNITARIO</th>
+                  <th>VALOR TOTAL</th>
+                  <th>ACCION</th>
+                </tr>
+              </thead>
+              <% a.task.each do |task| %>
+                <tr>
+                  <td><%= task.descripcion %></td>
+                  <td><%= (Reform.find(task.reform_id)).obra%> (<%= (Reform.find(task.reform_id)).fecha%>)</td>
+                  <td align="center"><%= number_with_delimiter(task.cantidad, separator:',') %></td>
+                  <td align="center"><% u=Unity.find(task.unity_id) %><%=u.sigla%></td>
+                  <td align="right">$</td>
+                  <td align="right"><%= number_with_delimiter(task.valor_unitario, delimiter:'.', separator:',') %></td>
+                  <td align="right">$</td>
+                  <td align="right"><% total= (task.cantidad)*(task.valor_unitario) %><%=number_with_delimiter(total, delimiter:'.', separator:',')%></td>
+                  <td align="center"><div class="icons">
+                        <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tarea'></span>".html_safe, edit_task_path(task), remote: true %>
+                        <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Tarea'></span>".html_safe, task, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Tareas?" } %>
+                      </div>
+                  </td>
+                </tr>
+                <% end %>
+            </table>            
+          <% end %>
+        <% else %>
+        <div class="alert alert-info">
+          <strong>Info!: </strong> Este proyecto de Reforma aun no tiene registrada ningun actividad, para agregar las actividades de clic en el icono <span class='glyphicon glyphicon-plus-sign'>
+        </div>
         <% end %>
     </div>
   </div>

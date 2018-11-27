@@ -5,11 +5,37 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"><%= title %></h4>
       </div>
+      <% if @ac.errors.any? %>
+        <div class="alert alert-danger">
+          <ul>
+          <% @ac.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
       <%= form_for @ac, remote: true do |f| %>
         <div class="modal-body">
           <div class="form-group">
             <%= f.text_field :descripcion, class: "form-control input-lg", placeholder: "Ingresar Nueva Actividad" %>
           </div>
+          <% if @visibilidad == "true" %>
+            <div class="form-group" data-toggle='tooltip' title='Reforma predefinida, Elemento desactivado'>
+              <% r = Reform.find(@ac.reform_id) %>
+              <label class="control-label col-sm-6"><%=r.obra%> </label>
+              <%= f.text_field :reform_id, class: "form-control input-lg", value: r.id, readonly: @visibilidad %>
+            </div>
+          <% elsif @visibilidad == "false"  %>
+          <div class="form-group">
+            <label class="control-label col-sm-6">Seleccione el Proyecto de Reforma: </label>
+            <%= f.select :reform_id, options_for_select(Reform.all.collect { |r| [r.obra, r.id]}), {:include_blank => true}, class: "form-control input-lg"%>
+          </div>
+          <% else %>
+          <div class="form-group">
+            <label class="control-label col-sm-6">Seleccione una Reforma: </label>
+            <%= f.select :reform_id, options_for_select(Reform.all.collect { |r| [r.obra, r.id]},@ac.reform_id), {:include_blank => true}, class: "form-control input-lg"%>
+          </div>
+          <% end %>
         </div>
 
         <div class="modal-footer">

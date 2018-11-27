@@ -34,8 +34,9 @@
         </div>
         <% else %>
         <div class="form-group">
-          <label class="control-label col-sm-6">Seleccione un punto de venta: </label>
-          <%= f.select :point_id, options_for_select(Point.all.collect { |p| [p.nombre, p.id]},@r.point_id), {:include_blank => true}, class: "form-control input-lg"%>
+          <% p = Point.find(@r.point_id) %>
+          <label class="control-label col-sm-6"><%=p.nombre%></label>
+          <%= f.text_field :point_id, class: "form-control input-lg", value: p.id, readonly: "true" %>
         </div>
       </div>
       <% end %>
