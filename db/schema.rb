@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_184027) do
+ActiveRecord::Schema.define(version: 2019_01_25_225746) do
 
   create_table "actives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip"
@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(version: 2018_11_27_184027) do
     t.string "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture"
     t.bigint "technology_id"
     t.bigint "center_id"
     t.string "serial"
     t.string "celda"
+    t.string "picture"
     t.index ["center_id"], name: "index_points_on_center_id"
     t.index ["technology_id"], name: "index_points_on_technology_id"
   end
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_184027) do
     t.datetime "updated_at", null: false
     t.bigint "unity_id"
     t.decimal "valor_unitario", precision: 10
-    t.decimal "cantidad", precision: 10, scale: 2
+    t.decimal "cantidad", precision: 10
     t.bigint "activity_id"
     t.index ["activity_id"], name: "index_tasks_on_activity_id"
     t.index ["unity_id"], name: "index_tasks_on_unity_id"
