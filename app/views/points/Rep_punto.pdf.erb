@@ -20,27 +20,37 @@
     </style>
   </head>
   <body>
-    <table class=t_encabezado>
+
+
+    <table border="1" style=”width: 100%”>
+      <colgroup>
+        <col style="width: 20%"/>
+        <col style="width: 60%"/>
+        <col style="width: 20%"/>
+      </colgroup>
       <tr>
-        <td rowspan="3">Columna 1</td>
-        <td rowspan="3"><h1>HOJA DE VIDA PUNTO DE VENTA <%= @p.codigo %></h1></td>
-        <td>Version:</td>
-      </tr>
-      <tr>
-        <td>Fecha:</td>
-      </tr>
-      <tr>
-        <td>Pagina:</td>
-      </tr>
-    </table>
+        <td><img src="http://localhost:3000/Logo.png" width="250" height="100" align="center"></td>
+        <td><h2 align="center">REPORTE DE HOJA DE VIDA <br>PUNTO DE VENTA CODIGO <%= @p.codigo %></h2></td>
+        <td>
+            <table border="0">
+              <colgroup>
+                <col style="width: 100%"/>
+              </colgroup>
+              <tr><td><div align="center">Version: 1.0</div></td></tr>
+              <tr><td><div align="center">Fecha: 29/01/2019</div></td></tr>
+              <tr><td><div align="center">Pagina: 1 de 1</div></td></tr>
+            </table>
+        </td>
+      </table>
     <br>
-    <br>
-    <br>
-    <h2>DATOS BASICOS</h2>
-    <table>
+    <h3 style="background-color:Red; color:#FFFFFF;" align="center">DATOS BASICOS</h3>
+    <table align="center" border="0" style=”width: 100%”>
       <tr>
-        <td><p><b>Foto: </b></p><img src="http://localhost:3000<%= @p.picture.url%>" alt="Foto del punto de venta" width="340" height="270"></td>
-        <td style="padding: 15px">
+        <th>
+          <img src="http://localhost:3000<%= @p.picture.url%>" alt="Foto del punto de venta" width="340" height="270"></td>
+        </th>
+        <th>
+          <td style="padding: 15px">
             <p><b>Nombre: </b><%= @p.nombre %></p>
             <p><b>Codigo: </b><%= @p.codigo %></p>
             <p><b>Zona: </b><% c=Center.find(@p.center_id) %><% z=Zone.find(c.zone_id)%> <%=z.nombre %></p>
@@ -49,26 +59,34 @@
             <p><b>Telefono: </b><%= @p.telefono %></p>
             <p><b>Latitud: </b></p>
             <p><b>Longitud: </b></p>
-        </td>
+          </td>
+        </th>
       </tr>
     </table>
-    <h2>REFORMAS</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>FECHA</th>
-          <th>TIPO DE REFORMA</th>
-          <th>PROYECTO</th>
-          <th>OBRA</th>
-          </tr>
-      </thead>
+
+
+    <h3 style="background-color:Red; color:#FFFFFF;" align="center">REFORMAS</h3>
+      <br>
+    <table style="border-collapse: collapse" align="center" border="1" cellspacing="0" cellpadding="1">
+      <colgroup>
+        <col style="width: 20%"/>
+        <col style="width: 30%"/>
+        <col style="width: 25%"/>
+        <col style="width: 25%"/>
+      </colgroup>
+      <tr>
+        <th><h4 align="center">FECHA</h4></th>
+        <th><h4 align="center">TIPO REFORMA</h4></th>
+        <th><h4 align="center">PROYECTO</h4></th>
+        <th><h4 align="center">OBRA</h4></th>
+      </tr>
       <% @p.reforms.each do |reform| %>
       <tr>
-          <td><%= reform.fecha %></td>
+          <td align="center"><%= reform.fecha %></td>
           <td><%= (Modification.find(reform.modification_id)).descripcion %></td>
           <td><%= reform.proyecto %></td>
           <td><%= reform.obra %></td>
         <% end %>
-      </table>
+    </table>
   </body>
 </html>
