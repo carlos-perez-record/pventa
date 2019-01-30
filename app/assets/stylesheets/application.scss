@@ -8,8 +8,11 @@
 /* Se configura para que exista un margen superior de 50px */
 body {
   margin-top:40px;
-  background-image: url("fondo-pagina_ff13.png");
+  background-image: image-url('fondo.png');
   background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .dropdown-submenu {
