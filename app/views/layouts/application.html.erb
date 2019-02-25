@@ -26,7 +26,6 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="" data-toggle="tooltip" title="Pagina de Inicio">
-                <%= link_to image_tag(ActionController::Base.helpers.asset_path('logorecords.png')), root_path, class: "navbar-brand" %>
                 <% if signed_in? %>
                   <%= link_to "WikiPuntos ®", root_path, class: "navbar-brand" %>
                 <% end %>
@@ -96,11 +95,6 @@
                   <li><%= link_to "Login", login_path %></li>
                 <% end %>
               </ul>
-              <form class="navbar-form navbar-right" role="search" data-toggle="tooltip" title="Buscar Punto de Venta">
-                <div class="form-group">
-                  <input class="form-control" id="myInput" type="text" placeholder="Buscar Punto de Venta">
-                </div>
-              </form>
             </div><!-- /.navbar-collapse -->
           </div>
         <!-- </div> -->
