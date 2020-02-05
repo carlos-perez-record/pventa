@@ -11,6 +11,22 @@
       </div>
       <div style="margin-top:40px">
         <label>Filtro de Zona y Centro de Costos:</label>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
         <%= form_tag points_path, method: :get do %>
         <div class="form-group">
           <%= select_tag :zone_id, options_from_collection_for_select(Zone.all, "id", "nombre", params[:zone_id]), prompt: "Zonas", class: "form-control" %>
@@ -46,4 +62,3 @@
       <% end %>
     </div>
   </div>
-</div>

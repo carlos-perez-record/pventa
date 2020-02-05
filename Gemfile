@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.4'
+ruby '2.6.5'
 
 # Gema para documentar los modelos y las migraciones
 gem 'annotate'
@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
-
+gem 'rake'
 #para manejo de moneda
 gem 'accountingjs-rails', '~> 0.0.4'
 
