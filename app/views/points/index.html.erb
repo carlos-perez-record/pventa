@@ -1,7 +1,7 @@
 <div class="container" id="myDIV">
   <div class="row">
     <% unless signed_in? %>
-    <h1 style="font-family:Dosis;" aling="center">WikiPuntos ® </h1>
+    <%= link_to "WikiPuntos ®", login_path, class: "wiki" %>
     <% end %>
     <div class="col-sm-8 col-sm-offset-2">
       <% if signed_in? %>
@@ -19,11 +19,11 @@
           <% end %>
         </div>
       <%  else %>
-        <video controls="" autoplay>
+        <!-- <video controls="" autoplay>
           <source src="video/Video_Record.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
-      </div>
+      </div> -->
       <% end %>
     </div>
   </div>

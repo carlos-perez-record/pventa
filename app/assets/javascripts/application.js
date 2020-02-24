@@ -32,3 +32,11 @@ $(document).on("turbolinks:load",function(){
     e.preventDefault();
   });
 });
+
+
+// Funcionalidad de desplegar el formulario de ingreso
+$(document).on("turbolinks:load",function(){
+  $('.singIn').click(function(){
+    $('.fold').toggleClass('active')
+  });
+});

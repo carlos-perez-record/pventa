@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <% if signed_in? %>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <!--<div class="navbar-header">
@@ -106,6 +107,7 @@
         <!-- </div> -->
       <!--</div>< /.container -->
     </nav>
+    <% end %>
     <div class="row">
       <% if flash[:notice] %>
         <div class="alert alert-success">
