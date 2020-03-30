@@ -1,24 +1,31 @@
 <div class="container" id="myDIV">
   <div class="row">
-    <% unless signed_in? %>
-    <%= link_to "WikiPuntos ®", login_path, class: "wiki" %>
-    <% end %>
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="wiki">
+      <% unless signed_in? %>
+        <%= link_to "WikiPuntos ®", login_path, class: "wikitext" %>
+      <% end %>
+    </div>
+    <div class="col-sm-3">
+      <!-- Este es el contenedor de lado izquierdo -->
+    </div>
+    <div class="col-sm-9">
       <% if signed_in? %>
         <div class="page-header">
           <h1>Listado Puntos de Venta</h1>
         </div>
+
         <div class="points">
           <% @p.each do |pventa| %>
-            <%= link_to pventa do %><div class="point clearfix" id="clearf" data-toggle="tooltip" title="Clic para mas información de este punto de venta">
-              <div class="point-details">
-                <span class="point-nombre"><%= image_tag(pventa.picture.url, :width => 50, :height => 50) %><b> COD:</b><%= pventa.codigo %>,<b> NOMBRE:</b> <%=pventa.nombre%></span>
-
+            <%= link_to pventa do %>
+              <div class="point clearfix" id="clearf" data-toggle="tooltip" title="Clic para mas información de este punto de venta">
+                <div class="point-details">
+                  <span class="point-nombre"><%= image_tag(pventa.picture.url, :width => 50, :height => 50) %><b> COD:</b><%= pventa.codigo %>,<b> NOMBRE:</b> <%=pventa.nombre%></span>
+                </div>
               </div>
-          </div><% end %>
+            <% end %>
           <% end %>
         </div>
-      <%  else %>
+      <% else %>
         <!-- <video controls="" autoplay>
           <source src="video/Video_Record.mp4" type="video/mp4">
             Your browser does not support HTML5 video.

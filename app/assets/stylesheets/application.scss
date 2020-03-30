@@ -6,6 +6,12 @@
 @import "zones";
 @import "sessions";
 @import "users";
+@import "reforms";
+@import "modifications";
+@import "unities";
+@import "tasks";
+@import "activities";
+@import "actives";
 
 /* Se configura para que exista un margen superior de 50px */
 body {
@@ -15,20 +21,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
-.wiki {
-  font-size: 36px;
-  font-family: Dosis;
-  color: #d7d7d7;
-  text-align: right;
-  font-weight: bold;
-}
-
-.wiki:hover {
-  color: #bf2424;
-  text-decoration: none;
-}
-
 
 .dropdown-submenu {
     position: relative;

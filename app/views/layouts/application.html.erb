@@ -14,111 +14,116 @@
 
   <body>
     <% if signed_in? %>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <!--<div class="navbar-header">
-          <div class="col-sm-10 col-sm-offset-1"> -->
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="" data-toggle="tooltip" title="Pagina de Inicio">
-                <%= link_to image_tag(ActionController::Base.helpers.asset_path('logorecords.png')), root_path, class: "navbar-brand" %>
-                <% if signed_in? %>
-                  <%= link_to "WikiPuntos ®", root_path, class: "navbar-brand" %>
-                <% end %>
-              </a>
-            </div> <!--Cierra navbar header -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <!--<div class="navbar-header">
+            <div class="col-sm-10 col-sm-offset-1"> -->
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="" data-toggle="tooltip" title="Pagina de Inicio">
+                  <%= link_to image_tag(ActionController::Base.helpers.asset_path('logorecords.png')), root_path, class: "navbar-brand" %>
+                  <% if signed_in? %>
+                    <%= link_to "WikiPuntos ®", root_path, class: "navbar-brand" %>
+                  <% end %>
+                </a>
+              </div> <!--Cierra navbar header -->
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
 
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <% if signed_in? %>
-                <li data-toggle="tooltip" title="Gestión de Maestros" class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Maestros <span class='glyphicon glyphicon-tasks'></span>
-                    <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li class="dropdown-submenu">
-                        <a class="test" tabindex="-1" href="">Tareas<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a tabindex="-1" href="#"><%= link_to "Ver Unidades", unities_path %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Agregar Unidad", new_unity_path, remote: true %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Ver Tareas", tasks_path %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Agregar Tarea", new_task_path, remote: true %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Ver Actividad", activities_path %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Agregar Actividad", new_activity_path, remote: true %></a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown-submenu">
-                        <a class="test" tabindex="-1" href="">Reformas<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a tabindex="-1" href="#"><%= link_to "Ver Reformas", reforms_path %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Agregar Reforma", new_reform_path, remote: true %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Ver Tipo de Reforma", modifications_path %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Agr. T. de Reforma", new_modification_path, remote: true %></a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown-submenu">
-                        <a class="test" tabindex="-1" href="">Activos Fijos<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a tabindex="-1" href="#"><%= link_to "Ver Activos Fijos", actives_path %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Agregar Activo Fijo", new_active_path, remote: true %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Ver Dispositivos", devices_path %></a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown-submenu">
-                        <a class="test" tabindex="-1" href="">Territorio<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a tabindex="-1" href="#"><%= link_to "Nueva Zona", new_zone_path, remote: true %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Ver Zonas", zones_path %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Centro de Costos", centers_path %></a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown-submenu">
-                        <a class="test" tabindex="-1" href="">Tecn. Comunicaciones<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li><a tabindex="-1" href="#"><%= link_to "Nueva Tecnologia", new_technology_path, remote: true %></a></li>
-                          <li><a tabindex="-1" href="#"><%= link_to "Ver Tecnologias", technologies_path %></a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li data-toggle="tooltip" title="Agregar Nuevo Punto de Venta"><%= link_to "Registrar PV <span class='glyphicon glyphicon-plus'></span>".html_safe, new_point_path %></li>
-                  <li data-toggle="tooltip" title="Cerrar sesion"><%= link_to "Salir <span class='glyphicon glyphicon-off'></span>".html_safe, logout_path, method: :delete %></li>
-                <% else %>
-                  <li><%= link_to "Regístrate", new_user_path %></li>
-                  <li><%= link_to "Login", login_path %></li>
-                <% end %>
-              </ul>
-              <form class="navbar-form navbar-right" role="search" data-toggle="tooltip" title="Buscar Punto de Venta">
-                <div class="form-group">
-                  <input class="form-control" id="myInput" type="text" placeholder="Buscar Punto de Venta">
-                </div>
-              </form>
-            </div><!-- /.navbar-collapse -->
-          </div>
-        <!-- </div> -->
-      <!--</div>< /.container -->
-    </nav>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <% if signed_in? %>
+                    <li data-toggle="tooltip" title="Gestión de Maestros" class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Maestros <span class='glyphicon glyphicon-tasks'></span>
+                        <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                          <a class="test" tabindex="-1" href="">Tareas<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#"><%= link_to "Ver Unidades", unities_path %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Agregar Unidad", new_unity_path, remote: true %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Ver Tareas", tasks_path %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Agregar Tarea", new_task_path, remote: true %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Ver Actividad", activities_path %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Agregar Actividad", new_activity_path, remote: true %></a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                          <a class="test" tabindex="-1" href="">Reformas<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#"><%= link_to "Ver Reformas", reforms_path %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Agregar Reforma", new_reform_path, remote: true %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Ver Tipo de Reforma", modifications_path %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Agr. T. de Reforma", new_modification_path, remote: true %></a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                          <a class="test" tabindex="-1" href="">Activos Fijos<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#"><%= link_to "Ver Activos Fijos", actives_path %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Agregar Activo Fijo", new_active_path, remote: true %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Ver Dispositivos", devices_path %></a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                          <a class="test" tabindex="-1" href="">Territorio<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#"><%= link_to "Nueva Zona", new_zone_path, remote: true %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Ver Zonas", zones_path %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Centro de Costos", centers_path %></a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                          <a class="test" tabindex="-1" href="">Tecn. Comunicaciones<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#"><%= link_to "Nueva Tecnologia", new_technology_path, remote: true %></a></li>
+                            <li><a tabindex="-1" href="#"><%= link_to "Ver Tecnologias", technologies_path %></a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li data-toggle="tooltip" title="Agregar Nuevo Punto de Venta"><%= link_to "Registrar PV <span class='glyphicon glyphicon-plus'></span>".html_safe, new_point_path %></li>
+                    <li data-toggle="tooltip" title="Cerrar sesion"><%= link_to "Salir <span class='glyphicon glyphicon-off'></span>".html_safe, logout_path, method: :delete %></li>
+                  <% else %>
+                    <li><%= link_to "Regístrate", new_user_path %></li>
+                    <li><%= link_to "Login", login_path %></li>
+                  <% end %>
+                </ul>
+                <form class="navbar-form navbar-right" role="search" data-toggle="tooltip" title="Buscar Punto de Venta">
+                  <div class="form-group">
+                    <input class="form-control" id="myInput" type="text" placeholder="Buscar Punto de Venta">
+                  </div>
+                </form>
+              </div><!-- /.navbar-collapse -->
+            <!-- </div> -->
+          <!-- </div> -->
+        </div><!-- < /.container -->
+      </nav>
     <% end %>
     <div class="row">
       <% if flash[:notice] %>
         <div class="alert alert-success">
-          <button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:notice] %></div>
-      <% end %>
-      <% if flash[:alert] %>
-        <div class="alert alert-info">
-          <button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:alert] %></div>
+          <button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:notice] %>
+        </div>
       <% end %>
 
-      <%= yield %>
+      <% if flash[:alert] %>
+        <div class="alert alert-info">
+          <button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:alert] %>
+        </div>
+      <% end %>
     </div>
+
+    <%= yield %>
+
   </body>
 </html>
