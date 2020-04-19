@@ -14,7 +14,6 @@
           <thead>
             <tr>
               <th>DISPOSITIVO</th>
-              <th>IP</th>
               <th>SERIAL</th>
               <th>PLACA</th>
               <th>ACCION</th>
@@ -23,7 +22,6 @@
           <% @a.each do |active| %>
           <tr>
             <td><%d=Device.find(active.devices_id)%><%=d.nombre+" "+d.tipo%></td>
-            <td><%=active.ip %></td>
             <td><%=active.serial %></td>
             <td><%=active.placa %></td>
             <td>
