@@ -20,8 +20,8 @@
             <table class="table table-condensed">
               <thead>
                 <tr>
-                  <th><h3><b>FOTO</b></h3></th>
-                  <th><h3><b>DATOS BASICOS</b></h3></th>
+                  <th>FOTO</th>
+                  <th>DATOS BASICOS</th>
                 </tr>
               </thead>
               <tr>
@@ -77,18 +77,18 @@
         </div>
         <div id="menu2" class="tab-pane fade">
           <div class="table-responsive">
-            <table class="table table-condensed">
+            <table class="table table-striped">
               <thead>
                 <tr>
-                  <th><h3><b>TECNOLOGIA</b></h3></th>
-                  <th><h3><b>SERIAL</b></h3></th>
-                  <th><h3><b>CELDA</b></h3></th>
+                  <th>TECNOLOGIA</th>
+                  <th>SERIAL</th>
+                  <th>CELDA</th>
                 </tr>
               </thead>
               <tr>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td><%= @p.serial %></td>
+                <td><%= @p.celda %></td>
               </tr>
             </table>
           </div>
