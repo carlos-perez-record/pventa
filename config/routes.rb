@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   resources :activities
   resources :tasks
   resources :unities
+  resources :uses
 
 end
