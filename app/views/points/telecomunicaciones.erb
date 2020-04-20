@@ -1,3 +1,13 @@
 <td><%  t=Technology.find(@p.technology_id) %><%=t.descripcion%></td>
 <td><% @p.serial %></td>
 <td><% @p.celda %></td>
+
+
+<!--Codigo que se quita de la creacion de puntos -->
+<label class="control-label col-sm-7">Tecnologia de Comunicaciones:</label>
+<div class="b_auxiliares">
+  <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Agregar Tecnologia'></span>".html_safe, new_technology_path, remote: true %>
+</div>
+<%= f.select :technology_id, options_for_select(Technology.all.collect { |t| [t.descripcion, t.id]}), {} %>
+<%= f.text_field :serial, placeholder: "Ingrese el Serial" %>
+<%= f.text_field :celda, placeholder: "Ingrese la celda" %>
