@@ -1,0 +1,9 @@
+<% if @u.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#<%= @u.id %>').replaceWith(' <%= j render "row", use: @u %>');
+  $('.alert-success').html("El Uso ha sido modificado").show();
+  $('#center-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @d.errors.full_messages[0] %>');
+<% end %>
