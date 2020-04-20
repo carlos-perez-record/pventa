@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_214255) do
+ActiveRecord::Schema.define(version: 2020_04_20_015348) do
 
   create_table "actives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "serial"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2020_04_19_214255) do
     t.string "picture"
     t.bigint "technology_id"
     t.bigint "center_id"
-    t.string "serial"
     t.string "celda"
     t.index ["center_id"], name: "index_points_on_center_id"
     t.index ["technology_id"], name: "index_points_on_technology_id"
