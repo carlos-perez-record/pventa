@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :tasks
   resources :unities
   resources :uses
+  resources :ips
 
 end
