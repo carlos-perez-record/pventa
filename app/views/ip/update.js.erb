@@ -1,0 +1,9 @@
+<% if @i.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#<%= @i.id %>').replaceWith(' <%= j render "row", ip: @i %>');
+  $('.alert-success').html("La IP ha sido modificada").show();
+  $('#center-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @i.errors.full_messages[0] %>');
+<% end %>
