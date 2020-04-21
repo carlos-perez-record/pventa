@@ -39,6 +39,6 @@ class UsesController < ApplicationController
 
   private
     def use_params
-      params.require(:use).permit(:dewcription)
+      params.require(:use).permit(:description)
     end
 end
