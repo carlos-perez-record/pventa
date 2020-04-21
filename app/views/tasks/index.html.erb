@@ -4,8 +4,9 @@
       <div class="page-header icons">
         <h1>Listado Tareas</h1>
         <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
-        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Tarea'></span>".html_safe, new_task_path, remote: true %>
-        <%= link_to "<span class='glyphicon glyphicon-list-alt' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_activity_path, remote: true %>
+        <!-- Se desabilitan estos iconos porque solo deben ser registradas las actividades o las tareas a travez de la hoja de vida del punto de venta -->
+        <!-- <#%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Tarea'></span>".html_safe, new_task_path, remote: true %> -->
+        <!-- <#%=  link_to "<span class='glyphicon glyphicon-list-alt' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_activity_path, remote: true %> -->
         <%= link_to "<span class='glyphicon glyphicon-scale' data-toggle='tooltip' title='Registrar Nueva Unidad de Medida'></span>".html_safe, new_unity_path, remote: true %>
       </div>
       <div class="fondo_tasks">

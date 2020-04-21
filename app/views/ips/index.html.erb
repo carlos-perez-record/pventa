@@ -24,8 +24,8 @@
             <td>Algun Dispositivo ingresa...</td>
             <td><%= ip.ip %></td>
             <td>Algun Uso ingresar...</td>
-            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar IP'></span>".html_safe, edit_ip_path(use), remote: true %>
-              <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar IP'></span>".html_safe, use, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta IP?" }, class: "destroy-room-btn" %></div></td>
+            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar IP'></span>".html_safe, edit_ip_path(ip), remote: true %>
+              <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar IP'></span>".html_safe, ip, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta IP?" }, class: "destroy-room-btn" %></div></td>
           </tr>
           <% end %>
         </table>

@@ -26,7 +26,7 @@ class IpsController < ApplicationController
   def update
     @i = Ip.find(params[:id])
     if @i.update(ip_params)
-      redirect_to ips_path, notice: "Este dispositivo ha sido actualizado"
+      redirect_to ips_path, notice: "Esta IP ha sido actualizada"
     else
       render :edit
     end
