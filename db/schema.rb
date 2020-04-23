@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_032543) do
+ActiveRecord::Schema.define(version: 2020_04_23_035951) do
 
   create_table "actives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "serial"
@@ -50,7 +50,9 @@ ActiveRecord::Schema.define(version: 2020_04_23_032543) do
     t.datetime "updated_at", null: false
     t.bigint "use_id"
     t.bigint "device_id"
+    t.bigint "point_id"
     t.index ["device_id"], name: "index_ips_on_device_id"
+    t.index ["point_id"], name: "index_ips_on_point_id"
     t.index ["use_id"], name: "index_ips_on_use_id"
   end
 
@@ -138,6 +140,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_032543) do
   add_foreign_key "activities", "reforms"
   add_foreign_key "centers", "zones"
   add_foreign_key "ips", "devices"
+  add_foreign_key "ips", "points"
   add_foreign_key "ips", "uses"
   add_foreign_key "points", "centers"
   add_foreign_key "points", "technologies"
