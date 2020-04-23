@@ -20,6 +20,11 @@
             <%= f.text_field :ip, class: "form-control input-lg", placeholder: "Ingresar IP" %>
           </div>
           <div class="form-group">
+            <label class="control-label col-sm-6">Seleccione a que dispositivo le corresponde esta IP: </label>
+            <!--En el formulario se poner un input selector, y en la opciones del mismo se invoca la coleccion que contiene el modelo USE -->
+            <%= f.select :device_id, options_for_select(Device.all.collect { |d| [d.nombre, d.id]},@i.device_id), {:include_blank => true}, class: "form-control input-lg"%>
+          </div>
+          <div class="form-group">
             <label class="control-label col-sm-6">Seleccione el uso que le dan a ese equipo: </label>
             <!--En el formulario se poner un input selector, y en la opciones del mismo se invoca la coleccion que contiene el modelo USE -->
             <%= f.select :use_id, options_for_select(Use.all.collect { |u| [u.description, u.id]},@i.use_id), {:include_blank => true}, class: "form-control input-lg"%>

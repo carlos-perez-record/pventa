@@ -11,5 +11,6 @@
 
 class Device < ApplicationRecord
   has_many :actives, dependent: :destroy
+  has_many :ips
   validates :nombre, presence: true
 end

@@ -23,7 +23,7 @@
           <% @i.each do |ip| %>
           <tr>
             <td>Algun PV ingresar...</td>
-            <td>Algun Dispositivo ingresa...</td>
+            <td><%=(Device.find(ip.device_id)).nombre %></td>
             <td><%= ip.ip %></td>
             <td><%=(Use.find(ip.use_id)).description %></td>
             <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar IP'></span>".html_safe, edit_ip_path(ip), remote: true %>
