@@ -41,7 +41,9 @@ class IpsController < ApplicationController
   def destroy
     ip = Ip.find(params[:id])
     ip.destroy
-    redirect_to ips_path, alert: "La IP fue eliminada"
+    # Retorna al ultimo punto en el cual se habia estado
+    session[:return_to] ||= request.referer
+    redirect_to session.delete(:return_to), alert: "La IP fue eliminada"
   end
 
   private
