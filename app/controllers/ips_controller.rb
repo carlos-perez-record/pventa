@@ -5,7 +5,13 @@ class IpsController < ApplicationController
   end
 
   def new
+    # Se crea una variable de instancia @i la cual recibe la instancia del modelo Ip
     @i = Ip.new
+    # Sobre la variable de instancia @i se reescribe en el campo point_id y se reemplaza su valor por el que arrastra la llave :point_id del hash params
+    @i.point_id = params[:point_id]
+    # Aprovechando el hash params al momento de invocarse el metodo new se crea y envia una llave boolena llamada :visible, la cual arrastra true o false dependiendo si se conoce o no el punto de venta al que le corresponde la nueva reforma
+    @visibilidadip = params[:visible]
+
   end
 
   def create
@@ -40,7 +46,7 @@ class IpsController < ApplicationController
 
   private
     def ip_params
-      params.require(:ip).permit(:ip, :device_id, :use_id)
+      params.require(:ip).permit(:ip, :point_id,  :device_id, :use_id)
     end
 
 end

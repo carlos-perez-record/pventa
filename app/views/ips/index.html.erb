@@ -5,9 +5,9 @@
         <h1>Usos</h1>
         <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
         <%= link_to "<span class='glyphicon glyphicon-tag' data-toggle='tooltip' title='ir a activo fijo'></span>".html_safe, actives_path %>
-        <!--
-        <#%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva IP'></span>".html_safe, new_activity_path(:reform_id=>nil, :visible => false ), remote: true %> -->
-        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva IP'></span>".html_safe, new_ip_path, remote: true %>
+
+        <!-- <#%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva IP'></span>".html_safe, new_ip_path, remote: true %> -->
+        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva IP'></span>".html_safe, new_ip_path(:point_id=>nil, :visible => false ), remote: true %>
       </div>
       <div class="table-responsive">
         <table class="table table-striped">
@@ -22,7 +22,7 @@
           </thead>
           <% @i.each do |ip| %>
           <tr>
-            <td>Algun PV ingresar...</td>
+            <td><%=(Point.find(ip.point_id)).codigo %></td>
             <td><%=(Device.find(ip.device_id)).nombre %></td>
             <td><%= ip.ip %></td>
             <td><%=(Use.find(ip.use_id)).description %></td>
