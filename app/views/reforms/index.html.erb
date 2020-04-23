@@ -5,6 +5,7 @@
       <div class="page-header icons">
         <h1>Listado de Reformas</h1>
         <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, reforms_path %>
+        <!-- En el siguiente link aprovechando que el metono ner_reforms_path es un GET, se envia en el params dos variables, la primera hace referencia al id del punto que en este caso es nulo; y otra de visibilidad del tipo boolean en el cual se envia el valor de false -->
         <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Reforma'></span>".html_safe, new_reform_path(:point_id=>nil, :visible => false ), remote: true %>
       </div>
 

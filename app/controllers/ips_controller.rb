@@ -40,7 +40,7 @@ class IpsController < ApplicationController
 
   private
     def ip_params
-      params.require(:ip).permit(:ip)
+      params.require(:ip).permit(:ip, :use_id)
     end
 
 end

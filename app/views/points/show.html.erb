@@ -39,6 +39,7 @@
         </div>
         <div id="menu1" class="tab-pane fade">
           <div class="page-header icons">
+            <!--Aprovechando que se esta parado en un punto de venta especifico, se envia a travez del params el id del punto, y la llave : visible de manera que se defina q el punto esta visible -->
             <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Reforma'></span>".html_safe, new_reform_path(:point_id=>params[:id], :visible => true ), remote: true %>
           </div>
             <div class="table-responsive">
