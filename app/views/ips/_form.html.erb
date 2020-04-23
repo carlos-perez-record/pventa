@@ -21,18 +21,18 @@
         <% if @visibilidadip == "true" %>
           <div class="form-group" data-toggle='tooltip' title='Punto de Venta, Elemento deshabilitado'>
             <% p = Point.find(@i.point_id) %>
-            <label class="control-label col-sm-6"><%=p.nombre%></label>
+            <label class="control-label col-sm-6">Punto de Venta</label>
             <%= f.text_field :point_id, class: "form-control input-lg", value: p.id, readonly: @visibilidadip %>
           </div>
         <% elsif @visibilidadip == "false"  %>
           <div class="form-group">
-            <label class="control-label col-sm-6">Seleccione Punto de Venta: </label>
+            <label class="control-label col-sm-6">Punto de Venta: </label>
             <%= f.select :point_id, options_for_select(Point.all.collect { |p| [p.codigo, p.id]}), {:include_blank => true}, class: "form-control input-lg"%>
           </div>
         <% else %>
           <div class="form-group">
             <% p = Point.find(@i.point_id) %>
-            <label class="control-label col-sm-6"><%=p.nombre%></label>
+            <label class="control-label col-sm-6">Punto de Venta</label>
             <%= f.text_field :point_id, class: "form-control input-lg", value: p.id, readonly: "true" %>
           </div>
         <% end %>

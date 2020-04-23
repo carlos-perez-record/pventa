@@ -1,11 +1,11 @@
 <div class="contenedor_show">
   <!-- <div class="row"> -->
     <div class="fondo_show">
-      <div class="page-header icons">
+      <div class="page-header icons">Funciones de Punto de Venta:
         <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
         <%= link_to "<span class='glyphicon glyphicon-file' data-toggle='tooltip' title='Generar Reporte'></span>".html_safe, point_path(@p, :format=>'pdf') %>
         <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Informacion P.V.'></span>".html_safe, edit_point_path(@p) %>
-        <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar P.V.'></span>".html_safe, @p, method: :delete, data: { confirm: "¿Estás seguro de eliminar este punto de venta?" } %>
+        <!-- <#%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar P.V.'></span>".html_safe, @p, method: :delete, data: { confirm: "¿Estás seguro de eliminar este punto de venta?" } %> -->
       </div>
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#home" style="color:red"><b>Datos Basicos</b></a></li>
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div id="menu1" class="tab-pane fade">
-          <div class="page-header icons">
+          <div class="page-header icons">Registrar Nueva Reforma:
             <!--Aprovechando que se esta parado en un punto de venta especifico, se envia a travez del params el id del punto, y la llave : visible de manera que se defina q el punto esta visible -->
             <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Reforma'></span>".html_safe, new_reform_path(:point_id=>params[:id], :visible => true ), remote: true %>
           </div>
@@ -76,10 +76,10 @@
             </div>
         </div>
         <div id="menu2" class="tab-pane fade">
-          <div class="page-header icons">
-            <!--Aprovechando que se esta parado en un punto de venta especifico, se envia a travez del params el id del punto, y la llave : visible de manera que se defina q el punto esta visible -->
-            <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Reforma'></span>".html_safe, new_reform_path(:point_id=>params[:id], :visible => true ), remote: true %>
-          </div>
+          <!--<div class="page-header icons">Funciones de Red:
+            <!--Aprovechando que se esta parado en un punto de venta especifico, se envia a travez del params el id del punto, y la llave : visible de manera que se defina q el punto esta visible
+            <#%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Tecnologia'></span>".html_safe, new_reform_path(:point_id=>params[:id], :visible => true ), remote: true %>
+          </div>-->
           <div class="panel panel-default">
             <div class="panel-heading"><strong>RED</strong></div>
             <div class="panel-body">
@@ -90,6 +90,7 @@
                       <th>TECNOLOGIA</th>
                       <th>SERIAL</th>
                       <th>CELDA</th>
+                      <th>ACCION</th>
                     </tr>
                   </thead>
                   <tr>
@@ -104,28 +105,47 @@
                     <% end %>
                     <td><%=@p.serial %></td>
                     <td><%=@p.celda %></td>
+                    <td><td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tecnologia'></span>".html_safe, edit_technology_path(@p.technology_id), remote: true %>
+                          <!--<#%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar esta Tecnologia'></span>".html_safe, reform, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Reforma" } %> -->
+                        </div>
+                    </td>
                   </tr>
                 </table>
               </div>
             </div>
+          </div>
+          <div class="page-header icons">Registrar IP:
+            <!--Aprovechando que se esta parado en un punto de venta especifico, se envia a travez del params el id del punto, y la llave : visible de manera que se defina q el punto esta visible -->
+            <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva IP'></span>".html_safe, new_ip_path(:point_id=>params[:id], :visible => true ), remote: true %>
           </div>
           <div class="panel panel-default">
             <div class="panel-heading"><strong>COMUNICACION</strong></div>
             <div class="panel-body">
               <div class="table-responsive">
                 <table class="table table-striped">
-                  <thead>
+                  <% if @p.ips.any? %>
+                    <thead>
+                      <tr>
+                        <th>DISPOSITIVO</th>
+                        <th>IP</th>
+                        <th>USO</th>
+                        <th>ACCION</th>
+                      </tr>
+                    </thead>
+                    <% @p.ips.each do |ip| %>
                     <tr>
-                      <th>EQUIPO</th>
-                      <th>IP</th>
-                      <th>USO</th>
+                      <td><%=(Device.find(ip.device_id)).nombre %></td>
+                      <td><%= ip.ip %></td>
+                      <td><%=(Use.find(ip.use_id)).description %></td>
+                      <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar IP'></span>".html_safe, edit_ip_path(ip), remote: true %>
+                        <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar IP'></span>".html_safe, ip, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta IP?" }, class: "destroy-room-btn" %></div></td>
                     </tr>
-                  </thead>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
+                    <% end %>
+                    <% else %><br>
+                      <div class="alert alert-info">
+                        <strong>Info!: </strong> Este punto de venta aun no tiene registrado ninguna direccion IP!
+                      </div>
+                  <% end %>
                 </table>
               </div>
             </div>
