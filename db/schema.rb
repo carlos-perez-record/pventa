@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_225746) do
+ActiveRecord::Schema.define(version: 2020_04_23_035951) do
 
   create_table "actives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "ip"
     t.string "serial"
     t.integer "placa"
     t.datetime "created_at", null: false
@@ -45,6 +44,18 @@ ActiveRecord::Schema.define(version: 2019_01_25_225746) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "use_id"
+    t.bigint "device_id"
+    t.bigint "point_id"
+    t.index ["device_id"], name: "index_ips_on_device_id"
+    t.index ["point_id"], name: "index_ips_on_point_id"
+    t.index ["use_id"], name: "index_ips_on_use_id"
+  end
+
   create_table "modifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "descripcion"
     t.datetime "created_at", null: false
@@ -58,11 +69,11 @@ ActiveRecord::Schema.define(version: 2019_01_25_225746) do
     t.string "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture"
     t.bigint "technology_id"
     t.bigint "center_id"
     t.string "serial"
     t.string "celda"
-    t.string "picture"
     t.index ["center_id"], name: "index_points_on_center_id"
     t.index ["technology_id"], name: "index_points_on_technology_id"
   end
@@ -113,6 +124,12 @@ ActiveRecord::Schema.define(version: 2019_01_25_225746) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "uses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "zones", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
@@ -122,6 +139,9 @@ ActiveRecord::Schema.define(version: 2019_01_25_225746) do
   add_foreign_key "actives", "devices", column: "devices_id"
   add_foreign_key "activities", "reforms"
   add_foreign_key "centers", "zones"
+  add_foreign_key "ips", "devices"
+  add_foreign_key "ips", "points"
+  add_foreign_key "ips", "uses"
   add_foreign_key "points", "centers"
   add_foreign_key "points", "technologies"
   add_foreign_key "reforms", "modifications"

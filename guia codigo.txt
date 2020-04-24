@@ -1,0 +1,28 @@
+<%= image_tag("punto_venta.png") %>
+"punto_venta.png"
+
+
+
+
+<!-- Aqui se debe montar todo el codigo que define que el punto de venta ya esta predefinido -->
+<!-- Esto se hace similar con el controlador REFORMS
+<!-- <#% if @visibilidadpv == "true" %>
+<!--
+  <div class="form-group" data-toggle='tooltip' title='Reforma predefinida, Elemento desactivado'>  -->
+  <!--  <#% r = Reform.find(@ac.reform_id) %> -->
+  <!--  <label class="control-label col-sm-6"><#%=r.obra%> </label> -->
+  <!--  <#%= f.text_field :reform_id, class: "form-control input-lg", value: r.id, readonly: @visibilidad %> -->
+  <!-- </div> -->
+  <!-- <#% elsif @visibilidadpv == "false"  %>
+  <div class="form-group">
+    <label class="control-label col-sm-6">Seleccione el Proyecto de Reforma: </label>
+    <#%= f.select :reform_id, options_for_select(Reform.all.collect { |r| [r.obra, r.id]}), {:include_blank => true}, class: "form-control input-lg"%>
+  </div> -->
+  <!-- <#% else %>
+  <div class="form-group">
+    <label class="control-label col-sm-6">Reforma: </label>
+    <#% r = Reform.find(@ac.reform_id) %>
+    <label class="control-label col-sm-6"><#%=r.obra%> </label>
+    <#%= f.text_field :reform_id, class: "form-control input-lg", value: r.id, readonly: "true" %>
+  </div>
+  <#% end %> -->

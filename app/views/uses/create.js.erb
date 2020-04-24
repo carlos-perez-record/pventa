@@ -1,0 +1,9 @@
+<% if @u.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", use: @u %>');
+  $('.alert-success').html("El uso ha sido creado").show();
+  $('#center-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('ERROR: Especifique cual es el uso que desea registrar');
+<% end %>

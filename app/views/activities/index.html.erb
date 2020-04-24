@@ -1,26 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+<div class="contenedor_activities">
+  <!-- <div class="row"> -->
+    <!-- <div class="col-sm-8 col-sm-offset-2"> -->
       <div class="page-header icons">
         <h1>Listado de Actividades</h1>
         <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, activities_path %>
         <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_activity_path(:reform_id=>nil, :visible => false ), remote: true %>
       </div>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>ACTIVIDAD</th>
-            <th>ACCION</th>
-          </tr>
-        </thead>
-        <% @ac.each do |activity| %>
+      <div class="fondo_activities">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ACTIVIDAD</th>
+              <th>ACCION</th>
+            </tr>
+          </thead>
+          <% @ac.each do |activity| %>
           <tr>
             <td><%= activity.descripcion %></td>
-            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Actividad'></span>".html_safe, edit_activity_path(activity), remote: true %>
-            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Actividad'></span>".html_safe, activity, method: :delete, data: { confirm: "¿Estás seguro de eliminar Actividad?" } %></div></td>
+            <td>
+              <div class="icons">
+                <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Actividad'></span>".html_safe, edit_activity_path(activity), remote: true %>
+                <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Actividad'></span>".html_safe, activity, method: :delete, data: { confirm: "¿Estás seguro de eliminar Actividad?" } %>
+              </div>
+            </td>
           </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
+          <% end %>
+        </table>
+      </div>
+    <!-- </div> -->
+  <!-- </div> -->
 </div>

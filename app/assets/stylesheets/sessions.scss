@@ -1,3 +1,94 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contenedor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.singIn {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background: rgba(207, 15, 15, 0.6);
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(255, 0, 0, 0.32);
+}
+
+.fold {
+  position: relative;
+  width: 100%;
+  background: rgba(42, 35, 35, 0.44);
+  transform-origin: top;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  transition: .5s;
+  transform: perspective(2000px) rotateX(90deg); // rotateX(0deg) deja el formulario sin accion
+}
+
+.fold.active {
+  transform: perspective(2000px) rotateX(0deg);
+}
+
+.fold form input[type= "hidden"], .fold form input[type= "email"], .fold form input[type= "password"] {
+  width: 100%;
+  margin-bottom: 20px;
+  height: 40px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 40px;
+  box-shadow: none;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #525151;
+  box-shadow: 0 5px 10px rgba(255, 252, 252, 0.09);
+}
+
+::placeholder {
+  color:  #d0c8c8;
+  text-transform: uppercase;
+}
+
+.fold form input[type= "submit"] {
+  display: block;
+  padding: 12px 40px;
+  border-radius: 40px;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgba(198, 0, 0, 0.29);
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 5px 10px rgba(255, 252, 252, 0.09);
+}
+
+.fold form input[type= "submit"]:hover {
+  background: #bf2424;
+}
+
+.fold form a {
+  color: #fff;
+  margin-top: 20px;
+  display: block;
+  font-size: 18px;
+  text-align: right;
+  text-decoration: none;
+  font-weight: bold;
+}

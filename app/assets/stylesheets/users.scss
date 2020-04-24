@@ -1,3 +1,87 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.newUs {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background: rgba(207, 15, 15, 0.6);
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(255, 0, 0, 0.32);
+}
+
+.foldNU {
+  position: relative;
+  width: 100%;
+  background: rgba(42, 35, 35, 0.44);
+  transform-origin: top;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  transition: .5s;
+  transform: perspective(2000px) rotateX(0deg); // rotateX(0deg) deja el formulario sin accion
+}
+
+.foldNU.active {
+  transform: perspective(2000px) rotateX(0deg);
+}
+
+.foldNU form input[type= "hidden"], .foldNU form input[type= "email"], .foldNU form input[type= "password"], .foldNU form input[type= "text"] {
+  width: 100%;
+  margin-bottom: 20px;
+  height: 40px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 40px;
+  box-shadow: none;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #525151;
+  box-shadow: 0 5px 10px rgba(255, 252, 252, 0.09);
+}
+
+::placeholder {
+  color:  #d0c8c8;
+  text-transform: uppercase;
+}
+
+.foldNU form input[type= "submit"] {
+  display: block;
+  padding: 12px 40px;
+  border-radius: 40px;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgba(198, 0, 0, 0.29);
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 5px 10px rgba(255, 252, 252, 0.09);
+}
+
+.foldNU form input[type= "submit"]:hover {
+  background: #bf2424;
+}
+
+.foldNU form a {
+  color: #fff;
+  margin-top: 20px;
+  display: block;
+  font-size: 18px;
+  text-align: right;
+  text-decoration: none;
+  font-weight: bold;
+}

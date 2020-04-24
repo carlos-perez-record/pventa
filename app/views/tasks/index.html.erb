@@ -1,27 +1,29 @@
-<!-- <div class="container"> -->
+<div class="container">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
       <div class="page-header icons">
         <h1>Listado Tareas</h1>
-          <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
-          <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Tarea'></span>".html_safe, new_task_path, remote: true %>
-          <%= link_to "<span class='glyphicon glyphicon-list-alt' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_activity_path, remote: true %>
-          <%= link_to "<span class='glyphicon glyphicon-scale' data-toggle='tooltip' title='Registrar Nueva Unidad de Medida'></span>".html_safe, new_unity_path, remote: true %>
+        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
+        <!-- Se desabilitan estos iconos porque solo deben ser registradas las actividades o las tareas a travez de la hoja de vida del punto de venta -->
+        <!-- <#%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva Tarea'></span>".html_safe, new_task_path, remote: true %> -->
+        <!-- <#%=  link_to "<span class='glyphicon glyphicon-list-alt' data-toggle='tooltip' title='Registrar Nueva Actividad'></span>".html_safe, new_activity_path, remote: true %> -->
+        <%= link_to "<span class='glyphicon glyphicon-scale' data-toggle='tooltip' title='Registrar Nueva Unidad de Medida'></span>".html_safe, new_unity_path, remote: true %>
       </div>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>DESCRIPCION</th>
-              <th>ACTIVIDAD</th>
-              <th>CANTIDAD</th>
-              <th>UNIDAD</th>
-              <th colspan="2" text-align="right">V. UNITARIO</th>
-              <th colspan="2" text-align="right">V. TOTAL</th>
-              <th>ACCION</th>
-            </tr>
-          </thead>
-          <% @task.each do |task| %>
+      <div class="fondo_tasks">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>DESCRIPCION</th>
+                <th>ACTIVIDAD</th>
+                <th>CANTIDAD</th>
+                <th>UNIDAD</th>
+                <th colspan="2" text-align="right">V. UNITARIO</th>
+                <th colspan="2" text-align="right">V. TOTAL</th>
+                <th>ACCION</th>
+              </tr>
+            </thead>
+            <% @task.each do |task| %>
             <tr>
               <td><%= task.descripcion %></td>
               <td><%= (Activity.find(task.activity_id)).descripcion %></td>
@@ -31,15 +33,17 @@
               <td align="right"><%= number_with_delimiter(task.valor_unitario, delimiter:'.', separator:',') %></td>
               <td align="right">$</td>
               <td align="right"><% total= (task.cantidad)*(task.valor_unitario) %><%=number_with_delimiter(total, delimiter:'.', separator:',')%></td>
-              <td align="center"><div class="icons">
-                    <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tarea'></span>".html_safe, edit_task_path(task), remote: true %>
-                    <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Tarea'></span>".html_safe, task, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Tareas?" } %>
-                  </div>
+              <td align="center">
+                <div class="icons">
+                  <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tarea'></span>".html_safe, edit_task_path(task), remote: true %>
+                  <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina esta Tarea'></span>".html_safe, task, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Tareas?" } %>
+                </div>
               </td>
             </tr>
-          <% end %>
-        </table>
+            <% end %>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-<!-- </div> -->
+</div>

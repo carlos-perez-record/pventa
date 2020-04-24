@@ -5,8 +5,11 @@ class ReformsController < ApplicationController
   end
 
   def new
+    # Se crea una variable de instancia @r la cual recibe la instancia del modelo Reform
     @r = Reform.new
+    # Sobre la variable de instancia @r se reescribe en el campo point_id y se reemplaza su valor por el que arrastra la llave :point_id del hash params
     @r.point_id = params[:point_id]
+    # Aprovechando el hash params al momento de invocarse el metodo new se crea y envia una llave boolena llamada :visible, la cual arrastra true o false dependiendo si se conoce o no el punto de venta al que le corresponde la nueva reforma
     @visibilidad = params[:visible]
   end
 

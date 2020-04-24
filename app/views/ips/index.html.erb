@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="page-header icons">
+        <h1>Usos</h1>
+        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
+        <%= link_to "<span class='glyphicon glyphicon-tag' data-toggle='tooltip' title='ir a activo fijo'></span>".html_safe, actives_path %>
+
+        <!-- <#%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva IP'></span>".html_safe, new_ip_path, remote: true %> -->
+        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nueva IP'></span>".html_safe, new_ip_path(:point_id=>nil, :visible => false ), remote: true %>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>PUNTO DE VENTA</th>
+              <th>DISPOSITIVO</th>
+              <th>IP</th>
+              <th>USO</th>
+              <th>ACCION</th>
+            </tr>
+          </thead>
+          <% @i.each do |ip| %>
+          <tr>
+            <td><%=(Point.find(ip.point_id)).codigo %></td>
+            <td><%=(Device.find(ip.device_id)).nombre %></td>
+            <td><%= ip.ip %></td>
+            <td><%=(Use.find(ip.use_id)).description %></td>
+            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar IP'></span>".html_safe, edit_ip_path(ip), remote: true %>
+              <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar IP'></span>".html_safe, ip, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta IP?" }, class: "destroy-room-btn" %></div></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

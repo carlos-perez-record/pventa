@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+<div class="contenedor_actives">
+  <!-- <div class="row"> -->
+    <!-- <div class="col-sm-8 col-sm-offset-2"> -->
       <div class="page-header">
         <h1>Listado de Activos Fijos</h1>
         <div class="icons">
@@ -9,27 +9,31 @@
           <%= link_to "<span class='glyphicon glyphicon-plus-sign' data-toggle='tooltip' title='Registrar Nuevo Dispositivo'></span>".html_safe, new_device_path, remote: true %>
         </div>
       </div>
-      <table class="table table-striped">
-        <thead>
+      <div class="fondo_actives">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>DISPOSITIVO</th>
+              <th>SERIAL</th>
+              <th>PLACA</th>
+              <th>ACCION</th>
+            </tr>
+          </thead>
+          <% @a.each do |active| %>
           <tr>
-            <th>DISPOSITIVO</th>
-            <th>IP</th>
-            <th>SERIAL</th>
-            <th>PLACA</th>
-            <th>ACCION</th>
+            <td><%d=Device.find(active.devices_id)%><%=d.nombre+" "+d.tipo%></td>
+            <td><%=active.serial %></td>
+            <td><%=active.placa %></td>
+            <td>
+              <div class="icons">
+                <%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Activo Fijo'></span>".html_safe, edit_active_path(active), remote: true %>
+                <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina el Centro de Costo y los puntos de venta que lo contienen'></span>".html_safe, active, method: :delete, data: { confirm: "¿Esta seguro de eliminar este activo fijo?" } %>
+              </div>
+            </td>
           </tr>
-        </thead>
-        <% @a.each do |active| %>
-        <tr>
-          <td><%d=Device.find(active.devices_id)%><%=d.nombre+" "+d.tipo%></td>
-          <td><%=active.ip %></td>
-          <td><%=active.serial %></td>
-          <td><%=active.placa %></td>
-          <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Activo Fijo'></span>".html_safe, edit_active_path(active), remote: true %>
-            <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Elimina el Centro de Costo y los puntos de venta que lo contienen'></span>".html_safe, active, method: :delete, data: { confirm: "¿Esta seguro de eliminar este activo fijo?" } %></div></td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
+          <% end %>
+        </table>
+      </div>
+    <!-- </div> -->
+  <!-- </div> -->
 </div>

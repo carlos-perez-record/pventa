@@ -2,14 +2,96 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.contenedor_show {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 60%;
+  box-sizing: border-box;
+  overflow: hidden;
+
+}
+
+.fondo_show {
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.52);
+  border-radius: 5px;
+}
+
+.contenedor_form {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.fondo_form {
+  position: relative;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.52);
+  border-radius: 5px;
+  transform-origin: top;
+  padding: 15px 10px;
+  box-sizing: border-box;
+}
+
+.fondo_form form input[type = "hidden"], .fondo_form form input[type = "text"], .fondo_form form input[type = "file"], .fondo_form form select {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40%;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: none;
+  outline: none;
+  color: #555252;
+  background: transparent;
+  border: 1px solid #525151;
+  box-shadow: 0 5px 10px rgba(255, 252, 252, 0.09);
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.fondo_form form input[type = "submit"] {
+  display: block;
+  width: 100%;
+  padding: 12px 40px;
+  border-radius: 40px;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgba(198, 0, 0, 0.29);
+  color: #fff;
+  box-shadow: 0 5px 10px rgba(59, 1, 1, 0.81);
+}
+
+.fondo_form form input[type = "submit"]:hover {
+  background: #bf2424;
+}
+
+.page-header {
+  text-align: right;
+  color: #dbdad8;
+  padding-bottom: 0;
+}
+
 .points {
   margin-top: 40px;
 
   .point {
+    margin-top: 5px;
     padding: 15px 10px;
     border-radius: 5px;
+    background: rgba(255, 255, 255, 0.52);
 
-    &:hover{ background: #f5f5f2; }
+    &:hover{ background: rgba(#f5f5f2, 0.76); }
 
     .point-details {
       float: left;
@@ -101,7 +183,7 @@
 }
 
 .b_auxiliares {
-  margin-top: 2px;
+  // margin-top: 2px;
   text-align: right;
   a {
     color: black;
@@ -109,4 +191,20 @@
 
     &:hover { color: #F04500; }
   }
+}
+
+.wiki {
+  text-align: right;
+  font-size: 40px;
+  font-family: Dosis;
+  margin-top: 40px;
+}
+
+.wikitext {
+  color: #d7d7d7;
+}
+
+.wikitext:hover {
+  color: #e91d26;
+  text-decoration: none;
 }

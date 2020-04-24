@@ -39,7 +39,7 @@ class ActivesController < ApplicationController
 private
 
   def active_params
-    params.require(:active).permit(:ip, :serial, :placa, :devices_id)
+    params.require(:active).permit(:serial, :placa, :devices_id)
   end
 
 end

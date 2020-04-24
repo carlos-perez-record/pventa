@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="page-header icons">
+        <h1>Usos</h1>
+        <%= link_to "<span class='glyphicon glyphicon-arrow-left' data-toggle='tooltip' title='ir a Inicio'></span>".html_safe, points_path %>
+        <%= link_to "<span class='glyphicon glyphicon-tag' data-toggle='tooltip' title='ir a IPS'></span>".html_safe, actives_path %>
+        <%= link_to "<span class='glyphicon glyphicon-plus' data-toggle='tooltip' title='Registrar Nuevo Uso'></span>".html_safe, new_use_path, remote: true %>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>DESCRIPCION</th>
+              <th>ACCION</th>
+            </tr>
+          </thead>
+          <% @u.each do |use| %>
+          <tr>
+            <td><%= use.id %></td>
+            <td><%= use.description %></td>
+            <td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Uso'></span>".html_safe, edit_use_path(use), remote: true %>
+              <%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar Uso'></span>".html_safe, use, method: :delete, data: { confirm: "¿Estás seguro de eliminar este uso?" }, class: "destroy-room-btn" %></div></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

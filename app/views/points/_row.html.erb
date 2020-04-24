@@ -1,0 +1,14 @@
+<tr id="<%= point.id %>">
+  <td><%= point.codigo %></td>
+  <td><%= point.nombre %></td>
+  <td><%= point.direccion %></td>
+  <td><%= point.telefono %></td>
+  <td><%= point.picture %></td>
+  <td><%= point.technology_id %></td>
+  <td><%= point.center_id %></td>
+  <td><%= point.serial %></td>
+  <td><%= point.celda %></td>
+  <td>
+    <%= link_to "Editar", edit_point_path(point), remote: true %>
+  </td>
+</tr>

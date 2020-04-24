@@ -1,0 +1,9 @@
+<% if @p.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody').append(' <%= j render "row", point: @p %>');
+  $('.alert-success').html("La informacion de la tecnologia del punto ha sido registrada").show();
+  $('#point-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @p.errors.full_messages[0] %>');
+<% end %>

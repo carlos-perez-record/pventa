@@ -1,3 +1,19 @@
 // Place all the styles related to the unities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contenedor_unities {
+  position: absolute;
+  top: 45%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.fondo_unities {
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.52);
+  border-radius: 5px;
+}
