@@ -105,9 +105,9 @@
                     <% end %>
                     <td><%=@p.serial %></td>
                     <td><%=@p.celda %></td>
-                    <td><td><div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Tecnologia'></span>".html_safe, edit_technology_path(@p.technology_id), remote: true %>
-                          <!--<#%= link_to "<span class='glyphicon glyphicon-trash' data-toggle='tooltip' title='Eliminar esta Tecnologia'></span>".html_safe, reform, method: :delete, data: { confirm: "¿Estás seguro de eliminar esta Reforma" } %> -->
-                        </div>
+                    <td>
+                      <div class="icons"><%= link_to "<span class='glyphicon glyphicon-pencil' data-toggle='tooltip' title='Modificar Informacion de Tecnologia'></span>".html_safe, edit_point_path(@p), remote: true %>
+                      </div>
                     </td>
                   </tr>
                 </table>
